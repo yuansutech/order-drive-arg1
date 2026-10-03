@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Yuansu Tech】旧硬盘 QC-2009 · 作品介绍</title>
+<style>
+  body {
+    background-color: #ffffff;
+    font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    color: #000000;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .header { margin-bottom: 20px; font-weight: bold; }
+  .sub-header { color: #666666; margin-bottom: 40px; font-size: 14px; }
+  .notice { color: #666666; margin-bottom: 40px; }
+  .notice span { display: inline-block; width: 90px; }
+  h2 {
+    font-size: 16px; margin-top: 50px; margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 1px solid #eee;
+  }
+  h3 { font-size: 14px; margin-top: 28px; margin-bottom: 12px; color: #333; }
+  .path {
+    display: block; color: #666666; font-size: 14px;
+    padding-left: 0; margin: 6px 0;
+    white-space: pre-wrap;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+  }
+  code {
+    background: #f5f5f5; padding: 2px 6px; border-radius: 3px;
+    font-size: 13px; color: #c00;
+  }
+  .warn { color: #c00; font-weight: bold; }
+  .ok { color: #005cc5; font-weight: bold; }
+  .gray { color: #888; }
+  .box {
+    background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+    padding: 16px 20px; margin: 16px 0; font-size: 14px;
+  }
+  .box-title { font-weight: bold; margin-bottom: 8px; font-size: 13px; color: #555; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+  th, td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+  th { background: #fafafa; font-weight: bold; }
+  ul { padding-left: 24px; margin: 8px 0; }
+  li { margin-bottom: 4px; }
+  .footer {
+    color: #999999; font-size: 13px; border-top: 1px solid #eeeeee;
+    padding-top: 20px; margin-top: 60px;
+  }
+  .toc {
+    background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+    padding: 16px 24px; margin-bottom: 40px; font-size: 14px;
+  }
+  .toc a { color: #005cc5; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ul { padding-left: 20px; }
+  .toc li { margin-bottom: 4px; }
+  .hero {
+    text-align: center;
+    padding: 30px 0 40px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+  }
+  .hero .tagline {
+    color: #666;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .hero .meta {
+    color: #999;
+    font-size: 13px;
+    margin-top: 16px;
+    line-height: 2;
+  }
+  .hero .meta b { color: #333; }
+
+  /* ===== 同意勾选 + 开始按钮 ===== */
+  .consent-area {
+    margin-top: 22px;
+    text-align: center;
+  }
+  .consent-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .consent-label:hover { background: #f5f5f5; }
+  .consent-label input[type="checkbox"] {
+    width: 16px; height: 16px;
+    cursor: pointer;
+    accent-color: #000;
+  }
+  .consent-label .link {
+    color: #005cc5;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .consent-label .link:hover { color: #c00; }
+
+  .cta {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    transition: all 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .cta:hover { background: #333; }
+  .cta.disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ===== 弹窗 ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.show {
+    display: flex;
+    animation: fadein 0.2s ease;
+  }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: #fff;
+    border-radius: 8px;
+    max-width: 520px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideup 0.25s ease;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+  }
+  @keyframes slideup {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .modal-header {
+    padding: 16px 24px;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    letter-spacing: 0.05em;
+  }
+  .modal-body {
+    padding: 22px 24px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.75;
+  }
+  .modal-warn {
+    background: #fff5f5;
+    border-left: 3px solid #c00;
+    padding: 14px 16px;
+    color: #c00;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    border-radius: 0 4px 4px 0;
+  }
+  .pwd-hint {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .pwd-row {
+    margin-bottom: 16px;
+  }
+  .pwd-row .label-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 10px;
+  }
+  .pwd-row label {
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .pwd-row .hint {
+    font-size: 11px;
+    color: #888;
+    font-family: "SF Mono", Consolas, monospace;
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 3px;
+    user-select: all;
+    cursor: copy;
+    border: 1px dashed #ddd;
+    transition: all 0.15s;
+  }
+  .pwd-row .hint:hover {
+    background: #fff8e0;
+    border-color: #c98a4b;
+    color: #c00;
+  }
+  .pwd-row .hint::before {
+    content: "🔑 ";
+    opacity: 0.6;
+  }
+  .pwd-row input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    font-size: 13px;
+    color: #000;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .pwd-row input:focus { border-color: #000; }
+  .pwd-row input.ok { border-color: #0a0; background: #f0fff4; }
+  .pwd-row input.err { border-color: #c00; background: #fff5f5; }
+
+  .pwd-msg {
+    margin-top: 12px;
+    font-size: 12px;
+    min-height: 18px;
+    color: #c00;
+  }
+  .pwd-msg.ok { color: #0a0; }
+
+  .copy-tip {
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .modal-footer {
+    padding: 16px 24px 22px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  .modal-btn {
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    transition: all 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .modal-btn:hover { border-color: #999; background: #f5f5f5; }
+  .modal-btn.confirm {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+  .modal-btn.confirm:hover { background: #333; border-color: #333; }
+  .modal-btn.confirm:disabled {
+    background: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .modal-text-block {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.8;
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="header">Yuansu Tech【YUANSUTECH】</div>
+        <h1 style="font-size:22px;margin:12px 0 6px;font-weight:bold;">旧硬盘 QC-2009</h1>
+        <p class="tagline">Old Hard Drive QC-2009 · 一个网页解谜游戏</p>
+        <div class="meta">
+            类型：<b>网页解谜（WIG）</b> / 叙事探索 / 模拟操作系统<br>
+            语言：<b>中文 · English · 한국어 · 日本語</b><br>
+            出品：<b>YuansuTech</b>
+        </div>
+
+        <div class="consent-area">
+            <label class="consent-label" for="agreeCheck">
+                <input type="checkbox" id="agreeCheck">
+                <span>我已认真阅读并同意
+                    <span class="link" onclick="openDoc(event, 'user')">《Yuansu用户协议》</span>和
+                    <span class="link" onclick="openDoc(event, 'copyright')">《Yuansu版权纠纷》</span>
+                </span>
+            </label>
+        </div>
+
+        <a class="cta disabled" id="startBtn" href="./start.html">开始调查 →</a>
+    </div>
+
+    <div class="notice">
+        <span>[出品]</span> 【原创】YuansuTech<br>
+        <span>[禁止]</span> 盗用、转载 🚫<br>
+        <span>[操作]</span> 如果要模仿类似的作品，请联系作者：yuansu_zhouqibiao@163.com<br>
+        <span>[建议]</span> Chrome / Edge / Firefox
+    </div>
+
+    <div class="toc">
+        <strong>📖 目录</strong>
+        <ul>
+            <li><a href="#s1">一、这是什么</a></li>
+            <li><a href="#s2">二、怎么玩</a></li>
+            <li><a href="#s3">三、故事背景（不剧透）</a></li>
+            <li><a href="#s4">四、游戏机制</a></li>
+            <li><a href="#s5">五、文件结构</a></li>
+            <li><a href="#s6">六、多语言</a></li>
+            <li><a href="#s7">七、技术说明</a></li>
+            <li><a href="#s8">八、免责声明</a></li>
+            <li><a href="#s9">九、版权</a></li>
+            <li><a href="#s10">十、致谢</a></li>
+        </ul>
+    </div>
+
+
+    <h2 id="s1">一、这是什么</h2>
+
+    <p>《旧硬盘 QC-2009》是一个纯网页的解谜游戏。你不需要下载客户端，不需要注册账号，打开浏览器就能玩。</p>
+
+    <p>游戏模拟了一块 2009 年的旧硬盘。硬盘的主人叫沈默，是青川电视台的音效工程师。他的女朋友林小满——电视台的节目主持人——在 2009 年 4 月 17 日失踪，案子至今未破。</p>
+
+    <p>沈默把所有线索存进了这块硬盘。你捡到了它。</p>
+
+    <p>你的任务：翻阅硬盘里的文件，拼出三个密码碎片，解开被加密的日记和终端，最终找到林小满留下的最后一段录音。</p>
+
+
+    <h2 id="s2">二、怎么玩</h2>
+
+    <p>游戏的核心操作只有三个：</p>
+
+    <table>
+        <tr><th>操作</th><th>说明</th></tr>
+        <tr><td><b>点击</b></td><td>打开文件、切换页面</td></tr>
+        <tr><td><b>搜索</b></td><td>在搜索框输入关键词，跳转到对应文件</td></tr>
+        <tr><td><b>输入密码</b></td><td>在锁住的文件里输入四位数字</td></tr>
+    </table>
+
+    <p>没有地图，没有道具栏，没有角色移动。你的武器是阅读和联想。</p>
+
+    <p>整个游戏大约 <span class="ok">20 到 40 分钟</span>通关。卡住的话，每个游戏目录里都附带一份 <code>guide.html</code>，是完整攻略，可以随时打开。</p>
+
+
+    <h2 id="s3">三、故事背景（不剧透）</h2>
+
+    <p>沈默在青川电视台做音效，做了六年。他话不多，同事叫他"贝壳"。</p>
+
+    <p>2007 年，他在台里认识了刚来实习的林小满。2008 年，他们在一起。林小满后来主持了一档叫《菁英会客厅》的节目。</p>
+
+    <p>2009 年 4 月 16 日，她录了最后一期节目。嘉宾没来，她对着镜头一个人说了四十分钟。</p>
+
+    <p>2009 年 4 月 17 日，她失踪了。</p>
+
+    <p>同一个夜晚，沈默建起了一个叫"青川记忆"的个人网站。他把日记、照片、聊天记录、录音，全部存了进去。然后他把网站刻成一块硬盘。</p>
+
+    <p>硬盘最后修改时间停在 <span class="warn">2009 年 4 月 17 日 23:59:59</span>。</p>
+
+    <p>你是后来捡到这块硬盘的人。</p>
+
+
+    <h2 id="s4">四、游戏机制</h2>
+
+    <h3>📁 文件系统</h3>
+    <p>游戏入口是一个模拟的文件资源管理器。你能看到硬盘里的所有文件，其中三个是灰色的、上锁的：</p>
+    <div class="box">
+        <code>terminal.html</code> —— ???<br>
+        <code>decode.html</code> —— ???<br>
+        <code>final.html</code> —— 最后一段录音
+    </div>
+    <p>这三个文件需要密码才能打开，是游戏的主要目标。</p>
+
+    <h3>🔑 三个密码碎片</h3>
+    <p>在<span class="ok">日记</span>、<span class="ok">照片</span>、<span class="ok">聊天记录</span>里，分别藏着一个四位数字。找到它们，你才能解锁被加密的内容。三个碎片不需要按顺序找，随便先找到哪个都行。</p>
+
+    <h3>📓 笔记本</h3>
+    <p>每个页面右下角都有一个 📓 按钮。它会自动记录你读到的所有关键信息，包括你找到的密码碎片。如果你忘了线索在哪，点开笔记本看看就行。</p>
+
+    <h3>🖱️ 悬停秘密</h3>
+    <p>聊天记录里有一条"被撤回的消息"。它不会自己显示，你需要把鼠标停在那一行不动，等一秒，才会浮出隐藏的文字。这是游戏里唯一一处需要"<b>悬停</b>"而不是"点击"的地方。</p>
+
+    <h3>💻 终端</h3>
+    <p>解锁 <code>terminal.html</code> 之后，你会看到一个黑色的命令行终端。它支持五个命令：</p>
+    <div class="box">
+        <span class="path">ls              列出所有文件
+cat [file]      查看文件内容
+unlock [pwd]    解锁受保护文件
+clear           清屏
+exit            退出</span>
+    </div>
+    <p>最终结局需要你在终端里用 <code>unlock</code> 命令打开。</p>
+
+    <h3>💾 进度保存</h3>
+    <p>游戏进度自动保存在浏览器的本地存储里。关掉页面再打开，进度还在。想重玩，去 <code>index.html</code> 底部点"重置进度"按钮。</p>
+
+
+    <h2 id="s5">五、文件结构</h2>
+
+    <p>仓库根目录：</p>
+    <div class="box">
+        <span class="path">index.html          官网首页，带语言切换
+README.txt          介绍文档
+list.html           本文件</span>
+    </div>
+
+    <p>每个语言一个子目录：</p>
+
+    <h3>cn/ —— 中文版</h3>
+    <div class="box">
+        <span class="path">index.html          游戏入口（模拟硬盘）
+home.html           青川记忆 · 首页
+about.html          关于沈默
+diary.html          日记目录
+diary-01.html       日记一：遇见
+diary-02.html       日记二：她开始查了
+diary-03.html       日记三：最后一篇（需密码）
+photos.html         照片墙
+chat.html           聊天记录
+guestbook.html      留言板
+news.html           新闻存档
+forum.html          论坛帖
+missing.html        失踪档案
+terminal.html       终端（需密码）
+decode.html         解码工具
+final.html          最后一段录音（结局）
+guide.html          完整攻略
+list.html           介绍文档
+style.css           样式表
+script.js           游戏引擎
+music.mp3           结局页背景音乐
+images/
+  door.jpg          红门旧屋
+  envelope.jpg      白信封
+  sea.jpg           月夜海面</span>
+    </div>
+
+    <p><code>en/</code> <code>ko/</code> <code>jp/</code> 结构与中文版相同。</p>
+
+
+    <h2 id="s6">六、多语言</h2>
+
+    <p>官网首页支持四种语言切换：<b>中文 / English / 한국어 / 日本語</b>。切换后整页文字跟着变，点"开始调查"进入对应语言的游戏版本。四种语言的游戏内容、密码、流程完全一致，只是文本语言不同。</p>
+
+
+    <h2 id="s7">七、技术说明</h2>
+
+    <p>纯静态网站。没有后端，没有数据库，没有构建工具。</p>
+
+    <div class="box">
+        <span class="path">HTML + CSS + 原生 JavaScript
+进度存储：localStorage
+图片：本地文件
+音频：本地 mp3</span>
+    </div>
+
+    <p>你可以直接把整个文件夹下载下来，双击 <code>cn/index.html</code> 就能玩，不需要任何服务器。</p>
+
+    <p>部署到 GitHub Pages 时，把整个文件夹推到仓库，在 <code>Settings → Pages</code> 里选择分支，保存即可。</p>
+
+
+    <h2 id="s8">八、免责声明</h2>
+
+    <p>本作品为虚构网页解谜游戏。所有人物、机构、事件、地名均为剧情创作，与真实世界无关。</p>
+
+    <p>游戏里出现的"青川电视台""青川市公安局""青川论坛"等，均不存在于现实中。</p>
+
+    <p>如果剧情让你感到不适，那是故事本身在起作用，不是真实事件。</p>
+
+
+    <h2 id="s9">九、版权</h2>
+
+    <p>Copyright &copy; YuansuTech. All rights reserved.</p>
+
+    <p>YuansuTech 是一个独立团队。只有一个人。</p>
+
+    <p>禁止盗用、转载、二次分发。禁止去掉版权信息后重新发布。</p>
+
+    <p>如果你想引用、改编、做视频解说，请先联系作者。</p>
+
+
+    <h2 id="s10">十、致谢</h2>
+
+    <p>感谢每一个把这块硬盘翻到底的人。</p>
+
+    <p>林小满的案子在故事里没有破。但在故事外面，你找到了她。</p>
+
+    <p class="gray">青川的夏天很热，但晚上有风。</p>
+
+
+    <div class="footer">
+        Copyright &copy; YuansuTech. All rights reserved.<br>
+        提示：YuansuTech 是一个独立的团队，只有一个人。
+    </div>
+
+
+<!-- ===================== 弹窗 ===================== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">⚠️ 游玩前须知</div>
+    <div class="modal-body">
+
+      <div class="modal-warn">
+        如果剧情让你感到难受，请立刻退出，后果作者不承担。<br>
+        如果您确保认真阅读了《Yuansu用户协议》和《Yuansu版权纠纷》，
+        与您自己想要玩，作者一律不负责。
+      </div>
+
+      <p class="pwd-hint">请在下面的输入框内输入三层密码。<b>点击右边的 🔑 提示</b>，密码会自动填入对应输入框。</p>
+
+      <div class="pwd-row">
+        <div class="label-line">
+          <label>第一层</label>
+          <span class="hint" onclick="fillPwd('pwd1', 'yuansu_nb_666')">yuansu_nb_666</span>
+        </div>
+        <input type="text" id="pwd1" placeholder="请输入第一层密码" autocomplete="off">
+      </div>
+
+      <div class="pwd-row">
+        <div class="label-line">
+          <label>第二层</label>
+          <span class="hint" onclick="fillPwd('pwd2', 'best_writer_yuansu')">best_writer_yuansu</span>
+        </div>
+        <input type="text" id="pwd2" placeholder="请输入第二层密码" autocomplete="off">
+      </div>
+
+      <div class="pwd-row">
+        <div class="label-line">
+          <label>第三层</label>
+          <span class="hint" onclick="fillPwd('pwd3', 'yuansu_tech_good')">yuansu_tech_good</span>
+        </div>
+        <input type="text" id="pwd3" placeholder="请输入第三层密码" autocomplete="off">
+      </div>
+
+      <div class="pwd-msg" id="pwdMsg"></div>
+      <div class="copy-tip">点击提示可直接填入，也可以手动输入。</div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn" onclick="closeModal()">取消</button>
+      <button class="modal-btn confirm" id="confirmBtn" onclick="checkPasswords()">确认</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== 协议文档弹窗 ===================== -->
+<div class="modal-overlay" id="docOverlay">
+  <div class="modal">
+    <div class="modal-header" id="docTitle">文档</div>
+    <div class="modal-body">
+      <div class="modal-text-block" id="docContent"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn confirm" onclick="closeDoc()">关闭</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const CORRECT = {
+    pwd1: 'yuansu_nb_666',
+    pwd2: 'best_writer_yuansu',
+    pwd3: 'yuansu_tech_good'
+  };
+
+  const DOCS = {
+    user: {
+      title: '《Yuansu用户协议》',
+      content: `1. 本作品《旧硬盘 QC-2009》为 YuansuTech 独立开发的虚构网页解谜游戏（WIG）。<br><br>
+2. 所有人物、机构、事件、地名均为剧情创作，与真实世界无关。<br><br>
+3. 用户可自由游玩、分享游戏链接，但不得用于商业用途。<br><br>
+4. 禁止对游戏内容进行盗用、转载、二次分发，或去掉版权信息后重新发布。<br><br>
+5. 游戏进度保存在浏览器本地（localStorage），作者无法读取、也无法恢复。<br><br>
+6. 如剧情引起不适，请立即退出。作者不承担因游玩产生的任何后果。`
+    },
+    copyright: {
+      title: '《Yuansu版权纠纷》',
+      content: `1. 《旧硬盘 QC-2009》全部内容版权归 YuansuTech 所有。<br><br>
+2. 如需引用、改编、制作视频解说，请先联系作者：yuansu_zhouqibiao@163.com。<br><br>
+3. 未经授权禁止用于任何商业场景。<br><br>
+4. 若发现盗用、二次分发、去除版权信息的行为，作者保留追责权利。<br><br>
+5. 本协议最终解释权归 YuansuTech 所有。`
+    }
+  };
+
+  const checkbox = document.getElementById('agreeCheck');
+  const startBtn = document.getElementById('startBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const docOverlay = document.getElementById('docOverlay');
+  const pwdMsg = document.getElementById('pwdMsg');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      openModal();
+    } else {
+      startBtn.classList.add('disabled');
+    }
+  });
+
+  function openModal() {
+    pwdMsg.textContent = '';
+    pwdMsg.classList.remove('ok');
+    ['pwd1', 'pwd2', 'pwd3'].forEach(id => {
+      const el = document.getElementById(id);
+      el.value = '';
+      el.classList.remove('ok', 'err');
+    });
+    modalOverlay.classList.add('show');
+    setTimeout(() => document.getElementById('pwd1').focus(), 100);
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('show');
+    checkbox.checked = false;
+    startBtn.classList.add('disabled');
+  }
+
+  // 点击提示 → 自动填入对应输入框
+  function fillPwd(inputId, value) {
+    const el = document.getElementById(inputId);
+    el.value = value;
+    el.classList.remove('err');
+    el.classList.add('ok');
+    // 自动把焦点移到下一个输入框
+    const order = ['pwd1', 'pwd2', 'pwd3'];
+    const idx = order.indexOf(inputId);
+    if (idx < order.length - 1) {
+      setTimeout(() => document.getElementById(order[idx + 1]).focus(), 80);
+    }
+  }
+
+  function checkPasswords() {
+    const v1 = document.getElementById('pwd1').value.trim();
+    const v2 = document.getElementById('pwd2').value.trim();
+    const v3 = document.getElementById('pwd3').value.trim();
+
+    const e1 = document.getElementById('pwd1');
+    const e2 = document.getElementById('pwd2');
+    const e3 = document.getElementById('pwd3');
+
+    e1.classList.remove('ok', 'err');
+    e2.classList.remove('ok', 'err');
+    e3.classList.remove('ok', 'err');
+
+    if (v1 === CORRECT.pwd1) e1.classList.add('ok'); else e1.classList.add('err');
+    if (v2 === CORRECT.pwd2) e2.classList.add('ok'); else e2.classList.add('err');
+    if (v3 === CORRECT.pwd3) e3.classList.add('ok'); else e3.classList.add('err');
+
+    if (v1 === CORRECT.pwd1 && v2 === CORRECT.pwd2 && v3 === CORRECT.pwd3) {
+      pwdMsg.textContent = '✅ 三层密码全部正确。已解锁，可以开始调查。';
+      pwdMsg.classList.add('ok');
+      startBtn.classList.remove('disabled');
+      setTimeout(() => {
+        modalOverlay.classList.remove('show');
+      }, 800);
+    } else {
+      pwdMsg.textContent = '❌ 密码有误，请检查后重新输入。';
+      pwdMsg.classList.remove('ok');
+    }
+  }
+
+  ['pwd1', 'pwd2', 'pwd3'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => {
+      if (e.key === 'Enter') checkPasswords();
+    });
+  });
+
+  function openDoc(e, key) {
+    e.preventDefault();
+    e.stopPropagation();
+    const d = DOCS[key];
+    document.getElementById('docTitle').textContent = d.title;
+    document.getElementById('docContent').innerHTML = d.content;
+    docOverlay.classList.add('show');
+  }
+  function closeDoc() {
+    docOverlay.classList.remove('show');
+  }
+
+  modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) closeModal();
+  });
+  docOverlay.addEventListener('click', e => {
+    if (e.target === docOverlay) closeDoc();
+  });
+</script>
+
+</body>
+</html>

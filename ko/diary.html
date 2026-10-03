@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>일기 목록</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">diary/ —— 선모의 일기</div>
+    </div>
+    <div class="window-body">
+      <div class="file-list">
+        <div class="file-item" onclick="location.href='diary-01.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-01.txt —— 2008-03-15 · 만남</div>
+          <div class="size">2.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary-02.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-02.txt —— 2009-04-10 · 그녀가 조사를 시작했다</div>
+          <div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item locked" id="diary-03">
+          <div class="icon">🔒</div>
+          <div class="name">diary-03.txt —— 2009-04-17 · 마지막 일기</div>
+          <div class="size">비밀번호 필요</div>
+        </div>
+      </div>
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🔑 비밀번호 힌트</strong><br>
+        세 번째 일기는 암호화되어 있다. 선모는 다른 곳에 힌트를 남겼다 —<br>
+        "비밀번호는 처음 만난 날. 형식: MMDD."
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  const el = document.getElementById('diary-03');
+  if (s.diaryUnlocked) {
+    el.classList.remove('locked');
+    el.onclick = () => location.href = 'diary-03.html';
+    el.querySelector('.icon').textContent = '📄';
+    el.querySelector('.size').textContent = '해제됨';
+  } else {
+    el.onclick = () => {
+      const pwd = prompt('4자리 비밀번호를 입력하세요:');
+      if (!pwd) return;
+      if (pwd === '0315') {
+        setState({ diaryUnlocked: true });
+        saveNote('🔓 diary-03 해제. 비밀번호: 0315 (처음 만난 날)');
+        location.href = 'diary-03.html';
+      } else {
+        alert('비밀번호가 틀렸습니다.');
+      }
+    };
+  }
+});
+</script>
+</body>
+</html>

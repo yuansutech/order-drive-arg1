@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【Yuansu Tech arg】『古いハードディスク QC-2009』完全攻略</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+            color: #000000;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .header { margin-bottom: 20px; font-weight: bold; }
+        .sub-header { color: #666666; margin-bottom: 40px; font-size: 14px; }
+        .notice { color: #666666; margin-bottom: 40px; }
+        .notice span { display: inline-block; width: 100px; }
+        h2 {
+            font-size: 16px; margin-top: 50px; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid #eee;
+        }
+        .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+        .step-num {
+            display: inline-block; background: #000; color: #fff;
+            font-size: 12px; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px;
+        }
+        .step-title { font-weight: bold; margin-bottom: 6px; }
+        .step-body { color: #333; }
+        .path {
+            display: block; color: #666666; font-size: 14px;
+            padding-left: 0; margin: 6px 0;
+        }
+        code {
+            background: #f5f5f5; padding: 2px 6px; border-radius: 3px;
+            font-size: 13px; color: #c00;
+        }
+        .warn { color: #c00; font-weight: bold; }
+        .ok { color: #005cc5; font-weight: bold; }
+        .gray { color: #888; }
+        .box {
+            background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+            padding: 16px 20px; margin: 16px 0; font-size: 14px;
+        }
+        .box-title { font-weight: bold; margin-bottom: 8px; font-size: 13px; color: #555; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+        th, td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+        th { background: #fafafa; font-weight: bold; }
+        .footer {
+            color: #999999; font-size: 13px; border-top: 1px solid #eeeeee;
+            padding-top: 20px; margin-top: 60px;
+        }
+        .toc {
+            background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+            padding: 16px 24px; margin-bottom: 40px; font-size: 14px;
+        }
+        .toc a { color: #005cc5; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .toc ul { padding-left: 20px; }
+        .toc li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Yuansu Tech【YUANSUTECH】<br>
+        古いハードディスク QC-2009<br>
+        完全攻略 · 詰まった人向け
+    </div>
+
+    <div class="sub-header">
+        慌てないで。ついてきて、一歩ずつ。<br>
+        各ステップで「どこをクリック、何を入力、何が出れば成功」を説明します。
+    </div>
+
+    <div class="notice">
+        <span>[制作]</span> 【オリジナル】YuansuTech<br>
+        <span>[禁止]</span> 盗用・転載 🚫<br>
+        <span>[推奨]</span> Chrome または Edge で開く
+    </div>
+
+    <div class="toc">
+        <strong>📖 目次</strong>
+        <ul>
+            <li><a href="#s1">第一段階：沈黙と林小満を知る</a></li>
+            <li><a href="#s2">第二段階：3つのパスワード断片を集める</a></li>
+            <li><a href="#s3">第三段階：断片の検証 + ターミナル解除</a></li>
+            <li><a href="#s4">第四段階：ターミナル操作</a></li>
+            <li><a href="#s5">第五段階：エンディング</a></li>
+            <li><a href="#s6">早見表 + 救急箱</a></li>
+        </ul>
+    </div>
+
+
+    <div class="step">
+        <div class="step-num">0-2</div>
+        <div class="step-title">index.html をダブルクリック</div>
+        <div class="step-body">
+            ブラウザが開き、古いドライブ <code>QC-2009</code> が表示されます。<br>
+            中には12個のファイルがあり、そのうち3つは<span class="warn">灰色の鍵アイコン</span>：
+            <ul>
+                <li><code>terminal.html</code> —— ???</li>
+                <li><code>decode.html</code> —— ???</li>
+                <li><code>final.html</code> —— 最後の録音</li>
+            </ul>
+            <span class="gray">まずはそれらは無視して、開けるものから始めましょう。</span>
+        </div>
+    </div>
+
+
+    <h2 id="s1">第一段階：沈黙と林小満を知る</h2>
+
+    <div class="step">
+        <div class="step-num">1-1</div>
+        <div class="step-title">home.html をクリック</div>
+        <div class="step-body">
+            サイト主は <span class="ok">沈黙（シェン・モー）</span>、青川テレビの音響エンジニア。<br>
+            彼の恋人は <span class="ok">林小満（リン・シャオマン）</span>、司会者。<br>
+            <span class="warn">2009年4月17日に失踪</span>。<br>
+            サイトは彼が手がかりを残すために作ったもの。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">1-2</div>
+        <div class="step-title">about.html をクリック</div>
+        <div class="step-body">
+            沈黙の言葉：<br>
+            <span class="ok">「3つのパスワード断片は、日記・写真・チャット履歴に隠されている。合わせると4桁の数字になる。」</span><br>
+            これが次の目標です。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">📓 ノートを確認</div>
+        右下に 📓 ボタンがありますか？クリックしてみてください。<br>
+        あなたが読んだ重要情報は自動的に記録されています。<br>
+        <span class="gray">以降、手がかりを見つけるたびに追加されます。</span>
+    </div>
+
+
+    <h2 id="s2">第二段階：3つのパスワード断片を集める</h2>
+
+    <h3 style="margin-top:30px;font-size:14px;">断片1：日記 → 0315</h3>
+
+    <div class="step">
+        <div class="step-num">2-1</div>
+        <div class="step-title">diary.html をクリック</div>
+        <div class="step-body">
+            3つの日記があります：
+            <ul>
+                <li><code>diary-01.html</code> —— 出会い（開ける）</li>
+                <li><code>diary-02.html</code> —— 彼女は調査を始めた（開ける）</li>
+                <li><code>diary-03.html</code> —— 最後の日記（<span class="warn">ロック</span>）</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-2</div>
+        <div class="step-title">diary-01.html をクリック</div>
+        <div class="step-body">
+            2008年3月15日、沈黙が初めて林小満に出会った日。<br>
+            彼女は音響室でヘッドホンを借りに来ました。<br>
+            <br>
+            ページ下部にはっきり書かれています：<br>
+            <span class="ok">初めて会った日：3月15日 → 0315</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 断片1</div>
+        <code>0315</code>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-3</div>
+        <div class="step-title">diary.html に戻り、3番目をクリック</div>
+        <div class="step-body">
+            パスワード入力欄が表示されます。<code>0315</code> を入力。<br>
+            <span class="ok">✅ 解除成功。diary-03.html に自動遷移。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-4</div>
+        <div class="step-title">diary-03.html を読む</div>
+        <div class="step-body">
+            林小満が失踪した当日の記録。<br>
+            彼女は引き出しから写真を見つけ、裏にこう書かれていました：<br>
+            <span class="ok">0417</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 追加の手がかり</div>
+        <code>0417</code> —— 写真の裏の数字
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">断片2：写真 → 8821</h3>
+
+    <div class="step">
+        <div class="step-num">2-5</div>
+        <div class="step-title">photos.html をクリック</div>
+        <div class="step-body">
+            4枚の写真があり、2枚は「データ破損」と表示されています。<br>
+            <span class="gray">破損したものはクリックしても無駄です。時間を無駄にしないで。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-6</div>
+        <div class="step-title">4枚目の写真をクリック</div>
+        <div class="step-body">
+            それが <code>IMG_004.jpg</code>（白い封筒）です。<br>
+            ポップアップ：写真の裏に <span class="ok">8821</span>、沈黙の社員番号。<br>
+            ページ下部に隠された手がかりも表示されます。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 断片2</div>
+        <code>8821</code>
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">断片3：チャット → 0417</h3>
+
+    <div class="step">
+        <div class="step-num">2-7</div>
+        <div class="step-title">chat.html をクリック</div>
+        <div class="step-body">
+            2009年4月16日夜のチャット記録。<br>
+            林小満は南地区で「番組ゲスト」に会いに行くと言い、<br>
+            最後に1つメッセージを取り消しました。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-8</div>
+        <div class="step-title">「[メッセージを取り消しました]」にマウスを置く</div>
+        <div class="step-body">
+            <span class="warn">クリックしないで、ホバー（マウスを重ねる）です。</span><br>
+            その行の上でマウスを1秒静止。<br>
+            隠されたテキストが浮かび上がります：<br>
+            <span class="ok">「パスワードは 0417。私を忘れないで。」</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 断片3</div>
+        <code>0417</code>
+    </div>
+
+
+    <h2 id="s3">第三段階：断片の検証 + ターミナル解除</h2>
+
+    <div class="step">
+        <div class="step-num">3-1</div>
+        <div class="step-title">（任意）missing.html をクリック</div>
+        <div class="step-body">
+            警察の失踪者ファイル。ファイル番号は <code>QC2009-0417</code>。<br>
+            0417 は同時に：失踪日 + 写真の裏の数字 + 林小満の誕生日。<br>
+            <span class="gray">必須ではありませんが、0417 を覚えるのに役立ちます。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-2</div>
+        <div class="step-title">（任意）decode.html をクリック</div>
+        <div class="step-body">
+            解除済みなら、3つの断片を入力して検証：
+            <ul>
+                <li>断片1：<code>0315</code></li>
+                <li>断片2：<code>8821</code></li>
+                <li>断片3：<code>0417</code></li>
+            </ul>
+            「解読を試す」をクリック → ✅ 成功。<br>
+            <span class="gray">これも必須ではありません。スキップしても進行に影響しません。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-3</div>
+        <div class="step-title">index.html に戻り、terminal.html をクリック</div>
+        <div class="step-body">
+            以前はロックされていました。<br>
+            パスワード入力欄：<span class="ok">0315 を入力</span>。<br>
+            「解除」をクリック。<br>
+            <br>
+            ✅ ページが更新され、ターミナル画面に入ります。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">⚠️ 注意</div>
+        ターミナル解除パスワードは <code>0315</code> であり、0417 ではありません。<br>
+        0417 は次のステップで使います。
+    </div>
+
+
+    <h2 id="s4">第四段階：ターミナル操作</h2>
+
+    <div class="step">
+        <div class="step-num">4-1</div>
+        <div class="step-title">help と入力</div>
+        <div class="step-body">
+            使用可能なコマンドが表示されます：
+            <span class="path">
+                ls              ファイル一覧<br>
+                cat [file]      ファイル内容を表示<br>
+                unlock [pwd]    保護ファイルを解除<br>
+                clear           画面クリア<br>
+                exit            終了
+            </span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-2</div>
+        <div class="step-title">ls と入力</div>
+        <div class="step-body">
+            すべてのファイルが一覧表示されます。<br>
+            末尾に特別なファイルがあります：<br>
+            <code>final.txt  [保護]</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-3</div>
+        <div class="step-title">unlock 0417 と入力</div>
+        <div class="step-body">
+            <span class="ok">✅ ターミナル出力：</span><br>
+            <span class="path">
+                パスワード正解。final.txt を復号しました。<br>
+                これで final.html にアクセスできます。<br>
+                ドライブホームに戻って確認してください。
+            </span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 パスワード早見表</div>
+        <table>
+            <tr><th>パスワード</th><th>用途</th></tr>
+            <tr><td><code>0315</code></td><td>diary-03.html の解除；terminal.html の解除</td></tr>
+            <tr><td><code>8821</code></td><td>decode.html の検証のみ（任意）</td></tr>
+            <tr><td><code>0417</code></td><td>ターミナルコマンド <code>unlock 0417</code>、エンディング解除</td></tr>
+        </table>
+    </div>
+
+
+    <h2 id="s5">第五段階：エンディング</h2>
+
+    <div class="step">
+        <div class="step-num">5-1</div>
+        <div class="step-title">index.html に戻る</div>
+        <div class="step-body">
+            <code>final.html</code> が明るくなっています（もう灰色の鍵ではない）。<br>
+            アイコンが 🎙️ になり、サイズが「解除済み」と表示されます。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-2</div>
+        <div class="step-title">final.html をクリック</div>
+        <div class="step-body">
+            林小満の最後の録音の文字起こしを読みます。<br>
+            彼女は南地区の土地のこと、人々のことを話しました。<br>
+            最後の一文は：<span class="ok">「私のために戦わないで。録音をしかるべき人に渡して、私を忘れて。」</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-3</div>
+        <div class="step-title">エンディングを見る</div>
+        <div class="step-body">
+            ページ下部は月夜の海の画像。<br>
+            そして：
+            <span class="path">
+                — 完 —<br>
+                林小満 · 1983-2009 · 青川の永遠の声<br>
+                沈黙 · 1981-2009 · 彼は彼女の声を守った
+            </span>
+            <br>
+            <span class="ok">クリア。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-4</div>
+        <div class="step-title">もう一度遊ぶ？</div>
+        <div class="step-body">
+            <code>index.html</code> に戻ります。下部に「進行状況をリセット」ボタンがあります。<br>
+            クリックして確認すると、すべての進行状況が消去されます。
+        </div>
+    </div>
+
+
+    <h2 id="s6">早見表 + 救急箱</h2>
+
+    <div class="box">
+        <div class="box-title">🗺️ クリア経路図</div>
+        <span class="path">
+            index.html<br>
+            &nbsp;&nbsp;↓<br>
+            home.html → about.html<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → diary-01.html（0315 を探す）<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → 0315 を入力 → diary-03.html（0417 を探す）<br>
+            &nbsp;&nbsp;↓<br>
+            photos.html → 4枚目の写真（8821 を探す）<br>
+            &nbsp;&nbsp;↓<br>
+            chat.html → 取り消されたメッセージにホバー（0417 を探す）<br>
+            &nbsp;&nbsp;↓<br>
+            missing.html（0417 を確認）<br>
+            &nbsp;&nbsp;↓<br>
+            decode.html（3断片を検証、任意）<br>
+            &nbsp;&nbsp;↓<br>
+            terminal.html → 0315 を入力して解除<br>
+            &nbsp;&nbsp;↓<br>
+            ターミナルで unlock 0417 と入力<br>
+            &nbsp;&nbsp;↓<br>
+            index.html → final.html（エンディング）
+        </span>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🚑 詰まったときの救急箱</div>
+        <table>
+            <tr>
+                <th>症状</th>
+                <th>原因</th>
+                <th>解決</th>
+            </tr>
+            <tr>
+                <td>0315 を入力しても反応しない</td>
+                <td>入力場所が間違い</td>
+                <td>日記解除とターミナル解除は別々の場所。それぞれで入力</td>
+            </tr>
+            <tr>
+                <td>ターミナルで unlock 0417 がパスワードエラー</td>
+                <td>ターミナルがまだ未解除</td>
+                <td>先に 0315 を入力してターミナルを解除し、それからコマンドを入力</td>
+            </tr>
+            <tr>
+                <td>チャットで隠されたテキストが見えない</td>
+                <td>ホバーしていない</td>
+                <td>「[メッセージを取り消しました]」の上でマウスを1秒静止</td>
+            </tr>
+            <tr>
+                <td>final.html がまだ灰色</td>
+                <td>ターミナル解除が失敗</td>
+                <td>terminal.html に戻り unlock 0417 を入力</td>
+            </tr>
+            <tr>
+                <td>画像が表示されない</td>
+                <td>ファイル名が違う</td>
+                <td>images/ の中が door.jpg、envelope.jpg、sea.jpg か確認</td>
+            </tr>
+            <tr>
+                <td>もう一度遊びたい</td>
+                <td>進行状況が保存されている</td>
+                <td>index.html 下部の「進行状況をリセット」ボタン</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <div class="box-title">💡 クリア後に見るページ（世界観の補完）</div>
+        必須ではありませんが、真実を補完します：
+        <ul>
+            <li><code>guestbook.html</code> —— 2009年4月18日未明、誰かが沈黙に「もう探すな」と警告</li>
+            <li><code>news.html</code> —— 最後の番組が「技術的な問題」で放送取り消しに</li>
+            <li><code>forum.html</code> —— ネットユーザーが「彼女の最後の番組は南地区の土地について」と議論</li>
+        </ul>
+        この3つが合わさって完全な真実になります：<br>
+        林小満は南地区の土地の利権を突き止め、最後の番組を録音した。番組は握りつぶされ、彼女自身も消えた。<br>
+        沈黙はすべてをドライブに保存し、見つけてくれる人を待っていた。
+    </div>
+
+
+    <div class="footer">
+        Copyright &copy; YuansuTech. All rights reserved.<br>
+        注：YuansuTech は独立したチームです。たった一人。<br>
+        すべて終えても何かが引っかかるなら、それはあなたのせいではありません。沈黙がまだ終わっていないだけです。
+    </div>
+
+</body>
+</html>

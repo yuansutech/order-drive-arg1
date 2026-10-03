@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>チャット履歴</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">chat.log —— 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="chat">
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 23:47</div>
+          <div class="bubble">収録終わった？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:48</div>
+          <div class="bubble">終わった。今片付けてる。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 23:49</div>
+          <div class="bubble">いつ帰る？迎えに行く。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:50</div>
+          <div class="bubble">いい。まだ南地区に行かなきゃ。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 23:51</div>
+          <div class="bubble">こんな時間に南地区で何を？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:53</div>
+          <div class="bubble">物を取りに。誰かに呼ばれてる。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 23:54</div>
+          <div class="bubble">誰？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:56</div>
+          <div class="bubble">番組のゲスト。何か渡したいものがあるって。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:57</div>
+          <div class="bubble">心配しないで。すぐ戻るから。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:58</div>
+          <div class="bubble">そうだ、もし私が戻れなかったら——</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">満</div>
+          <div><div class="meta">林小満 · 23:59</div>
+          <div class="bubble recalled">[メッセージを取り消しました]</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 00:01</div>
+          <div class="bubble">戻れなかったら、何？はっきり言ってくれ。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 00:03</div>
+          <div class="bubble">小満？</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈黙 · 00:15</div>
+          <div class="bubble">なんで電源切ってるんだ。</div></div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>🔑 取り消されたメッセージ</strong><br>
+        <span class="hidden-reveal">ここにマウスを置いてみて
+          <span class="secret">沈黙は後でデータを復元した。メッセージは：「パスワードは 0417。私を忘れないで。」</span>
+        </span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('💬 小満は南地区で「番組ゲスト」に会いに行った。');
+  const reveal = document.querySelector('.hidden-reveal');
+  if (reveal) {
+    reveal.addEventListener('mouseenter', () => {
+      saveNote('🔑 取り消されたメッセージ：「パスワードは 0417。私を忘れないで。」');
+    });
+  }
+});
+</script>
+</body>
+</html>

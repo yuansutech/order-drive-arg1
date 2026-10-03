@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>照片墙</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">photos/ —— 4 张照片 · 2 张损坏</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">硬盘里的照片。点击查看大图。</p>
+      <div class="photo-grid">
+        <div class="photo-cell" onclick="alert('照片 1：电视台门口。2008 年 3 月 15 日。林小满第一天来台里。')">
+          <img src="images/door.jpg" alt="">
+          <div class="caption">IMG_001.jpg · 2008-03-15</div>
+        </div>
+        <div class="photo-cell" onclick="alert('照片 2：城南旧厂区。2009 年 4 月。照片背面写着 0417。')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[照片数据损坏]</div>
+          <div class="caption">IMG_002.jpg · 2009-04-XX（损坏）</div>
+        </div>
+        <div class="photo-cell" onclick="alert('照片 3：录音棚。林小满在录最后一期节目。2009 年 4 月 16 日。')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[照片数据损坏]</div>
+          <div class="caption">IMG_003.jpg · 2009-04-16（损坏）</div>
+        </div>
+        <div class="photo-cell" onclick="revealPhoto4()">
+          <img src="images/envelope.jpg" alt="">
+          <div class="caption">IMG_004.jpg · 2009-04-17</div>
+        </div>
+      </div>
+
+      <div class="timetower" id="photo-hint" style="display:none;">
+        <strong>🔑 隐藏线索</strong><br>
+        照片 4 的元数据里有一串数字：<span class="hl">8821</span><br>
+        这是沈默的工号。他把它刻在了录音设备上。
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="搜索…" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function revealPhoto4() {
+  document.getElementById('photo-hint').style.display = 'block';
+  saveNote('📷 照片4元数据：数字 8821（沈默工号）');
+  alert('照片 4：一个信封。拍摄于 2009 年 4 月 17 日。背面写着一串数字：8821');
+}
+</script>
+</body>
+</html>

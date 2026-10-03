@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>일기 03 · 마지막 일기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">diary-03.txt —— 2009-04-17</div>
+    </div>
+    <div class="window-body">
+      <p class="mono cold">2009년 4월 17일 · 금요일 · 비</p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p>샤오만이 사라졌다.</p>
+      <p>어젯밤 그녀는 마지막 회를 녹음하고 남부 지역에 가야 한다고 말했다.</p>
+      <p>같이 가겠다고 했다. 그녀는 괜찮다, 금방 온다고 했다.</p>
+      <p>나간 것은 밤 11시가 넘어서였다. 비가 내리고 있었다.</p>
+      <p>자정에 전화했다. 꺼져 있었다.</p>
+      <p>새벽 1시에 룸메이트에게 전화했다. 돌아오지 않았다고 했다.</p>
+      <p>새벽 3시에 경찰에 신고했다.</p>
+      <p>경찰이 왔을 때는 날이 밝아 있었다. 몇 가지 질문을 하고, 진술을 받고, 떠났다.</p>
+      <p>그녀의 서랍에서 사진을 찾았다. 남부 지역 공장 부지.</p>
+      <p>뒤에 숫자가 적혀 있었다: <span class="warn">0417</span></p>
+      <p>무슨 뜻인지 모르겠다. 날짜일 수도 있고, 뭔가 다른 것일 수도 있다.</p>
+      <p>적어두었다.</p>
+      <p class="dim" style="margin-top:16px;">— 이게 마지막 일기다.</p>
+      <p class="dim">그녀를 찾으면 계속 쓸 것이다.</p>
+      <p class="dim">못 찾으면…… 여기서 끝이다.</p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🔑 중요 정보</strong><br>
+        사진 뒤의 숫자: <span class="hl">0417</span><br>
+        비밀번호일 수도, 날짜일 수도.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 사진 뒤의 숫자: 0417');
+});
+</script>
+</body>
+</html>

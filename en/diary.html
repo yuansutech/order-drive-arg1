@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Diary Index</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">diary/ —— Mo Shen's Diary</div>
+    </div>
+    <div class="window-body">
+      <div class="file-list">
+        <div class="file-item" onclick="location.href='diary-01.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-01.txt —— 2008-03-15 · Meeting her</div>
+          <div class="size">2.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary-02.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-02.txt —— 2009-04-10 · She started digging</div>
+          <div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item locked" id="diary-03">
+          <div class="icon">🔒</div>
+          <div class="name">diary-03.txt —— 2009-04-17 · The last entry</div>
+          <div class="size">PASSWORD REQUIRED</div>
+        </div>
+      </div>
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🔑 PASSWORD HINT</strong><br>
+        The third entry is encrypted. Mo Shen left the hint elsewhere —<br>
+        "The password is the day we first met. Format: MMDD."
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  const el = document.getElementById('diary-03');
+  if (s.diaryUnlocked) {
+    el.classList.remove('locked');
+    el.onclick = () => location.href = 'diary-03.html';
+    el.querySelector('.icon').textContent = '📄';
+    el.querySelector('.size').textContent = 'UNLOCKED';
+  } else {
+    el.onclick = () => {
+      const pwd = prompt('Enter 4-digit password:');
+      if (!pwd) return;
+      if (pwd === '0315') {
+        setState({ diaryUnlocked: true });
+        saveNote('🔓 Unlocked diary-03. Password: 0315 (day they first met).');
+        location.href = 'diary-03.html';
+      } else {
+        alert('Wrong password.');
+      }
+    };
+  }
+});
+</script>
+</body>
+</html>

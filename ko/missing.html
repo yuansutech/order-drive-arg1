@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>실종자 파일</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— 칭촨 공안국</div>
+    </div>
+    <div class="window-body">
+      <p><strong>이름:</strong> 린샤오만</p>
+      <p><strong>성별:</strong> 여</p>
+      <p><strong>출생:</strong> 1983년</p>
+      <p><strong>실종일:</strong> <span class="hl">2009년 4월 17일</span></p>
+      <p><strong>실종 장소:</strong> 칭촨시 남부 지역</p>
+      <p><strong>상태:</strong> <span class="warn">미해결</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">2009년 4월 17일 밤, 린샤오만은 방송국 기숙사를 나간 후 돌아오지 않았다. 다음 날 아침 룸메이트가 신고했다.</p>
+      <p class="dim">경찰은 그녀의 노트북을 발견했다. 하드디스크는 포맷되어 있었다.</p>
+      <p class="dim">사무실 서랍에서 남부 지역 공장 부지 사진을 발견. 뒤에 0417이라고 적혀 있었다.</p>
+      <p class="dim">그 땅은 2009년 5월 한 부동산 회사에 인수되었다.</p>
+      <p class="warn" style="margin-top:12px;">사건은 미해결로 남아 있다.</p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🔑 파일 번호</strong><br>
+        QC2009-0417<br>
+        이 번호는: 실종일 + 사진 뒤 숫자 + 샤오만의 생일.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 파일 번호 QC2009-0417, 비밀번호 0417 확인.');
+});
+</script>
+</body>
+</html>

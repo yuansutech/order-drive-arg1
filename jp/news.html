@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ニュースアーカイブ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">news.html —— 青川テレビ · 2009年4月</div>
+    </div>
+    <div class="window-body">
+      <p><strong>2009-04-22 · 番組編成変更のお知らせ</strong></p>
+      <p class="dim">チャンネル改編に伴い、『エリートサロン』は今週をもって放送終了いたします。長らくのご支援ありがとうございました。</p>
+      <p style="margin-top:20px;"><strong>2009-04-25 · 司会 林小満に関するお知らせ</strong></p>
+      <p class="dim">林小満は一身上の都合により退職いたしました。今後、当局の番組に出演することはありません。</p>
+      <p style="margin-top:20px;"><strong>2009-04-30 · 『エリートサロン』最終回について</strong></p>
+      <p class="dim">2009年4月17日に放送予定だった『エリートサロン』第47回は、「技術的な問題」により放送を取り消しました。振替放送日は改めてお知らせします。</p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>📌 重要</strong><br>
+        最終回は4月16日に収録、4月17日に放送予定だったが、取り消された。<br>
+        沈黙はこの回の音響エンジニアだった。彼の手元にオリジナルの録音がある可能性がある。
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📰 『エリートサロン』最終回が「技術的な問題」で放送取り消しに。');
+});
+</script>
+</body>
+</html>

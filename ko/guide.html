@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【Yuansu Tech arg】『낡은 하드디스크 QC-2009』 완전 공략</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+            color: #000000;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .header { margin-bottom: 20px; font-weight: bold; }
+        .sub-header { color: #666666; margin-bottom: 40px; font-size: 14px; }
+        .notice { color: #666666; margin-bottom: 40px; }
+        .notice span { display: inline-block; width: 100px; }
+        h2 {
+            font-size: 16px; margin-top: 50px; margin-bottom: 16px;
+            padding-bottom: 8px; border-bottom: 1px solid #eee;
+        }
+        .step { margin-bottom: 28px; padding-left: 20px; border-left: 2px solid #eee; }
+        .step-num {
+            display: inline-block; background: #000; color: #fff;
+            font-size: 12px; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px;
+        }
+        .step-title { font-weight: bold; margin-bottom: 6px; }
+        .step-body { color: #333; }
+        .path {
+            display: block; color: #666666; font-size: 14px;
+            padding-left: 0; margin: 6px 0;
+        }
+        code {
+            background: #f5f5f5; padding: 2px 6px; border-radius: 3px;
+            font-size: 13px; color: #c00;
+        }
+        .warn { color: #c00; font-weight: bold; }
+        .ok { color: #005cc5; font-weight: bold; }
+        .gray { color: #888; }
+        .box {
+            background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+            padding: 16px 20px; margin: 16px 0; font-size: 14px;
+        }
+        .box-title { font-weight: bold; margin-bottom: 8px; font-size: 13px; color: #555; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+        th, td { border: 1px solid #eee; padding: 8px 12px; text-align: left; }
+        th { background: #fafafa; font-weight: bold; }
+        .footer {
+            color: #999999; font-size: 13px; border-top: 1px solid #eeeeee;
+            padding-top: 20px; margin-top: 60px;
+        }
+        .toc {
+            background: #fafafa; border: 1px solid #eee; border-radius: 6px;
+            padding: 16px 24px; margin-bottom: 40px; font-size: 14px;
+        }
+        .toc a { color: #005cc5; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .toc ul { padding-left: 20px; }
+        .toc li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Yuansu Tech【YUANSUTECH】<br>
+        낡은 하드디스크 QC-2009<br>
+        완전 공략 · 막힌 사람용
+    </div>
+
+    <div class="sub-header">
+        당황하지 마세요. 따라오세요, 한 걸음씩.<br>
+        각 단계마다 "어디를 클릭, 무엇을 입력, 무엇이 나오면 성공"을 알려드립니다.
+    </div>
+
+    <div class="notice">
+        <span>[제작]</span> 【오리지널】YuansuTech<br>
+        <span>[금지]</span> 도용·재배포 🚫<br>
+        <span>[권장]</span> Chrome 또는 Edge로 열기
+    </div>
+
+    <div class="toc">
+        <strong>📖 목차</strong>
+        <ul>
+            <li><a href="#s1">1단계: 선모와 린샤오만을 알다</a></li>
+            <li><a href="#s2">2단계: 3개의 비밀번호 조각 모으기</a></li>
+            <li><a href="#s3">3단계: 조각 검증 + 터미널 해제</a></li>
+            <li><a href="#s4">4단계: 터미널 조작</a></li>
+            <li><a href="#s5">5단계: 엔딩</a></li>
+            <li><a href="#s6">요약표 + 응급 키트</a></li>
+        </ul>
+    </div>
+
+
+    <div class="step">
+        <div class="step-num">0-2</div>
+        <div class="step-title">index.html 더블 클릭</div>
+        <div class="step-body">
+            브라우저가 열리고, 낡은 드라이브 <code>QC-2009</code> 가 보입니다.<br>
+            안에는 파일 12개가 있고, 그중 3개는 <span class="warn">회색 자물쇠 아이콘</span>입니다:
+            <ul>
+                <li><code>terminal.html</code> —— ???</li>
+                <li><code>decode.html</code> —— ???</li>
+                <li><code>final.html</code> —— 마지막 녹음</li>
+            </ul>
+            <span class="gray">일단 그것들은 무시하고, 열리는 것부터 시작하세요.</span>
+        </div>
+    </div>
+
+
+    <h2 id="s1">1단계: 선모와 린샤오만을 알다</h2>
+
+    <div class="step">
+        <div class="step-num">1-1</div>
+        <div class="step-title">home.html 클릭</div>
+        <div class="step-body">
+            사이트 주인은 <span class="ok">선모</span>, 칭촨 TV의 사운드 엔지니어.<br>
+            여자친구 <span class="ok">린샤오만</span>은 진행자,<br>
+            <span class="warn">2009년 4월 17일 실종</span>.<br>
+            사이트는 그가 단서를 남기기 위해 만든 것.
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">1-2</div>
+        <div class="step-title">about.html 클릭</div>
+        <div class="step-body">
+            선모의 말:<br>
+            <span class="ok">"3개의 비밀번호 조각은 일기, 사진, 채팅 기록에 숨겨져 있다. 합치면 4자리 숫자가 된다."</span><br>
+            이게 다음 목표입니다.
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">📓 노트 확인</div>
+        오른쪽 아래에 📓 버튼이 있나요? 클릭해보세요.<br>
+        당신이 읽은 중요 정보는 이미 자동 저장되어 있습니다.<br>
+        <span class="gray">앞으로 단서를 찾을 때마다 자동으로 추가됩니다.</span>
+    </div>
+
+
+    <h2 id="s2">2단계: 3개의 비밀번호 조각 모으기</h2>
+
+    <h3 style="margin-top:30px;font-size:14px;">조각 1: 일기 → 0315</h3>
+
+    <div class="step">
+        <div class="step-num">2-1</div>
+        <div class="step-title">diary.html 클릭</div>
+        <div class="step-body">
+            일기가 3개 있습니다:
+            <ul>
+                <li><code>diary-01.html</code> —— 만남 (열림)</li>
+                <li><code>diary-02.html</code> —— 그녀가 조사를 시작했다 (열림)</li>
+                <li><code>diary-03.html</code> —— 마지막 일기 (<span class="warn">잠김</span>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-2</div>
+        <div class="step-title">diary-01.html 클릭</div>
+        <div class="step-body">
+            2008년 3월 15일, 선모가 처음 린샤오만을 만난 날.<br>
+            그녀는 사운드 부스에 헤드폰을 빌리러 왔습니다.<br>
+            <br>
+            페이지 하단에 명확히 적혀 있습니다:<br>
+            <span class="ok">처음 만난 날: 3월 15일 → 0315</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 조각 1</div>
+        <code>0315</code>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-3</div>
+        <div class="step-title">diary.html로 돌아가 3번째 클릭</div>
+        <div class="step-body">
+            비밀번호 입력창이 나타납니다. <code>0315</code> 입력.<br>
+            <span class="ok">✅ 해제 성공. diary-03.html로 자동 이동.</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-4</div>
+        <div class="step-title">diary-03.html 읽기</div>
+        <div class="step-body">
+            린샤오만이 실종된 당일 기록.<br>
+            그녀는 서랍에서 사진을 발견했고, 뒤에 이렇게 적혀 있었습니다:<br>
+            <span class="ok">0417</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 추가 단서</div>
+        <code>0417</code> —— 사진 뒤의 숫자
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">조각 2: 사진 → 8821</h3>
+
+    <div class="step">
+        <div class="step-num">2-5</div>
+        <div class="step-title">photos.html 클릭</div>
+        <div class="step-body">
+            사진 4장이 있고, 2장은 "데이터 손상"으로 표시됩니다.<br>
+            <span class="gray">손상된 것은 클릭해도 소용없습니다. 시간 낭비하지 마세요.</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-6</div>
+        <div class="step-title">4번째 사진 클릭</div>
+        <div class="step-body">
+            바로 <code>IMG_004.jpg</code> (흰 봉투)입니다.<br>
+            팝업: 사진 뒤에 <span class="ok">8821</span>, 선모의 사원 번호.<br>
+            페이지 하단에 숨겨진 단서도 표시됩니다.
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 조각 2</div>
+        <code>8821</code>
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">조각 3: 채팅 → 0417</h3>
+
+    <div class="step">
+        <div class="step-num">2-7</div>
+        <div class="step-title">chat.html 클릭</div>
+        <div class="step-body">
+            2009년 4월 16일 밤 채팅 기록.<br>
+            린샤오만은 남부 지역에서 "프로그램 게스트"를 만나러 간다고 했고,<br>
+            마지막에 메시지 하나를 회수했습니다.
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-8</div>
+        <div class="step-title">"[메시지 회수됨]" 위에 마우스 올리기</div>
+        <div class="step-body">
+            <span class="warn">클릭하지 마세요, 호버(마우스 올리기)입니다.</span><br>
+            그 줄 위에서 마우스를 1초 정지.<br>
+            숨겨진 텍스트가 나타납니다:<br>
+            <span class="ok">"비밀번호는 0417. 나를 잊지 마."</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 조각 3</div>
+        <code>0417</code>
+    </div>
+
+
+    <h2 id="s3">3단계: 조각 검증 + 터미널 해제</h2>
+
+    <div class="step">
+        <div class="step-num">3-1</div>
+        <div class="step-title">(선택) missing.html 클릭</div>
+        <div class="step-body">
+            경찰 실종자 파일. 파일 번호는 <code>QC2009-0417</code>.<br>
+            0417은 동시에: 실종일 + 사진 뒤 숫자 + 린샤오만 생일.<br>
+            <span class="gray">필수는 아니지만, 0417을 기억하는 데 도움이 됩니다.</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-2</div>
+        <div class="step-title">(선택) decode.html 클릭</div>
+        <div class="step-body">
+            해제된 상태라면, 3개 조각을 입력해 검증:
+            <ul>
+                <li>조각 1: <code>0315</code></li>
+                <li>조각 2: <code>8821</code></li>
+                <li>조각 3: <code>0417</code></li>
+            </ul>
+            "해독 시도" 클릭 → ✅ 성공.<br>
+            <span class="gray">이것도 필수는 아닙니다. 건너뛰어도 진행에 영향 없습니다.</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-3</div>
+        <div class="step-title">index.html로 돌아가 terminal.html 클릭</div>
+        <div class="step-body">
+            이전에는 잠겨 있었습니다.<br>
+            비밀번호 입력창: <span class="ok">0315 입력</span>.<br>
+            "해제" 클릭.<br>
+            <br>
+            ✅ 페이지가 새로고침되고 터미널 화면으로 들어갑니다.
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">⚠️ 주의</div>
+        터미널 해제 비밀번호는 <code>0315</code>이며, 0417이 아닙니다.<br>
+        0417은 다음 단계에서 사용합니다.
+    </div>
+
+
+    <h2 id="s4">4단계: 터미널 조작</h2>
+
+    <div class="step">
+        <div class="step-num">4-1</div>
+        <div class="step-title">help 입력</div>
+        <div class="step-body">
+            사용 가능한 명령어가 표시됩니다:
+            <span class="path">
+                ls              파일 목록<br>
+                cat [file]      파일 내용 보기<br>
+                unlock [pwd]    보호 파일 해제<br>
+                clear           화면 지우기<br>
+                exit            종료
+            </span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-2</div>
+        <div class="step-title">ls 입력</div>
+        <div class="step-body">
+            모든 파일이 나열됩니다.<br>
+            맨 끝에 특별한 파일이 있습니다:<br>
+            <code>final.txt  [보호됨]</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-3</div>
+        <div class="step-title">unlock 0417 입력</div>
+        <div class="step-body">
+            <span class="ok">✅ 터미널 출력:</span><br>
+            <span class="path">
+                비밀번호 정확. final.txt 복호화됨.<br>
+                이제 final.html에 접근할 수 있습니다.<br>
+                드라이브 홈으로 돌아가 확인하세요.
+            </span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 비밀번호 요약표</div>
+        <table>
+            <tr><th>비밀번호</th><th>용도</th></tr>
+            <tr><td><code>0315</code></td><td>diary-03.html 해제; terminal.html 해제</td></tr>
+            <tr><td><code>8821</code></td><td>decode.html 검증 전용 (선택)</td></tr>
+            <tr><td><code>0417</code></td><td>터미널 명령어 <code>unlock 0417</code>, 엔딩 해제</td></tr>
+        </table>
+    </div>
+
+
+    <h2 id="s5">5단계: 엔딩</h2>
+
+    <div class="step">
+        <div class="step-num">5-1</div>
+        <div class="step-title">index.html로 돌아가기</div>
+        <div class="step-body">
+            <code>final.html</code> 이 밝아졌습니다 (더 이상 회색 자물쇠가 아님).<br>
+            아이콘이 🎙️ 로 바뀌고, 크기가 "해제됨"으로 표시됩니다.
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-2</div>
+        <div class="step-title">final.html 클릭</div>
+        <div class="step-body">
+            린샤오만의 마지막 녹음 텍스트를 읽습니다.<br>
+            그녀는 남부 지역 땅에 대해, 사람들에 대해 말했습니다.<br>
+            마지막 문장은: <span class="ok">"나를 위해 싸우지 마. 녹음을 마땅한 사람에게 넘기고, 나를 잊어."</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-3</div>
+        <div class="step-title">엔딩 보기</div>
+        <div class="step-body">
+            페이지 하단은 달밤의 바다 이미지.<br>
+            그리고:
+            <span class="path">
+                — 끝 —<br>
+                린샤오만 · 1983-2009 · 칭촨의 영원한 목소리<br>
+                선모 · 1981-2009 · 그는 그녀의 목소리를 지켰다
+            </span>
+            <br>
+            <span class="ok">클리어.</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-4</div>
+        <div class="step-title">다시 하고 싶다면?</div>
+        <div class="step-body">
+            <code>index.html</code> 로 돌아갑니다. 하단에 "진행 초기화" 버튼이 있습니다.<br>
+            클릭하고 확인하면 모든 진행 상황이 삭제됩니다.
+        </div>
+    </div>
+
+
+    <h2 id="s6">요약표 + 응급 키트</h2>
+
+    <div class="box">
+        <div class="box-title">🗺️ 클리어 경로도</div>
+        <span class="path">
+            index.html<br>
+            &nbsp;&nbsp;↓<br>
+            home.html → about.html<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → diary-01.html (0315 찾기)<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → 0315 입력 → diary-03.html (0417 찾기)<br>
+            &nbsp;&nbsp;↓<br>
+            photos.html → 4번째 사진 (8821 찾기)<br>
+            &nbsp;&nbsp;↓<br>
+            chat.html → 회수된 메시지에 호버 (0417 찾기)<br>
+            &nbsp;&nbsp;↓<br>
+            missing.html (0417 확인)<br>
+            &nbsp;&nbsp;↓<br>
+            decode.html (3조각 검증, 선택)<br>
+            &nbsp;&nbsp;↓<br>
+            terminal.html → 0315 입력해 해제<br>
+            &nbsp;&nbsp;↓<br>
+            터미널에서 unlock 0417 입력<br>
+            &nbsp;&nbsp;↓<br>
+            index.html → final.html (엔딩)
+        </span>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🚑 막혔을 때 응급 키트</div>
+        <table>
+            <tr>
+                <th>증상</th>
+                <th>원인</th>
+                <th>해결</th>
+            </tr>
+            <tr>
+                <td>0315를 입력해도 반응 없음</td>
+                <td>입력 위치가 틀림</td>
+                <td>일기 해제와 터미널 해제는 별개의 위치. 각각 입력</td>
+            </tr>
+            <tr>
+                <td>터미널에서 unlock 0417이 비밀번호 오류</td>
+                <td>터미널이 아직 미해제</td>
+                <td>먼저 0315를 입력해 터미널을 해제하고, 그다음 명령어 입력</td>
+            </tr>
+            <tr>
+                <td>채팅에서 숨겨진 텍스트가 안 보임</td>
+                <td>호버 안 함</td>
+                <td>"[메시지 회수됨]" 위에서 마우스 1초 정지</td>
+            </tr>
+            <tr>
+                <td>final.html이 아직 회색</td>
+                <td>터미널 해제 실패</td>
+                <td>terminal.html로 돌아가 unlock 0417 입력</td>
+            </tr>
+            <tr>
+                <td>이미지가 표시되지 않음</td>
+                <td>파일명이 다름</td>
+                <td>images/ 안이 door.jpg, envelope.jpg, sea.jpg인지 확인</td>
+            </tr>
+            <tr>
+                <td>다시 하고 싶음</td>
+                <td>진행 상황이 저장됨</td>
+                <td>index.html 하단 "진행 초기화" 버튼</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <div class="box-title">💡 클리어 후 볼 페이지 (세계관 보완)</div>
+        필수는 아니지만, 진실을 보완합니다:
+        <ul>
+            <li><code>guestbook.html</code> —— 2009년 4월 18일 새벽, 누군가 선모에게 "그만 찾아"라고 경고</li>
+            <li><code>news.html</code> —— 마지막 회가 "기술적 문제"로 방송 취소</li>
+            <li><code>forum.html</code> —— 네티즌들이 "그녀의 마지막 회는 남부 지역 땅에 관한 것"이라고 토론</li>
+        </ul>
+        이 셋이 합쳐져 완전한 진실이 됩니다:<br>
+        린샤오만은 남부 지역 땅의 이권을 파헤쳤고, 마지막 회를 녹음했다. 방송은 묻혔고, 그녀 자신도 사라졌다.<br>
+        선모는 모든 것을 드라이브에 저장하고, 찾아줄 사람을 기다렸다.
+    </div>
+
+
+    <div class="footer">
+        Copyright &copy; YuansuTech. All rights reserved.<br>
+        참고: YuansuTech는 독립 팀입니다. 단 한 사람.<br>
+        모든 것을 끝냈는데도 뭔가 이상하다면, 당신 탓이 아닙니다. 선모가 아직 끝나지 않은 겁니다.
+    </div>
+
+</body>
+</html>

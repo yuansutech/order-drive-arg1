@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ローカルディスク (D:) · QC-2009</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">D:\QC-2009\ —— 読み取り専用バックアップ · ファイルシステム破損</div>
+    </div>
+    <div class="window-body">
+      <p class="cold">古いドライブを接続した。ラベルは「QC-2009」。シールは黄ばんでいる。</p>
+      <p>中にはフォルダが一つだけ：<span class="hl">qingchuan-memory</span>。</p>
+      <p class="cold">最終更新：2009年4月17日 · 23:59:59</p>
+      <p class="warn">⚠️ 一部のファイルが破損しています。修復するまでアクセスできません。</p>
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📁</div><div class="name">home.html —— 青川の記憶 · ホーム</div><div class="size">4.2 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— 沈黙について</div><div class="size">3.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary.html'">
+          <div class="icon">📁</div><div class="name">diary/ —— 沈黙の日記</div><div class="size">3件、うち1件暗号化</div>
+        </div>
+        <div class="file-item" onclick="location.href='photos.html'">
+          <div class="icon">🖼️</div><div class="name">photos/ —— 写真</div><div class="size">4件、うち2件破損</div>
+        </div>
+        <div class="file-item" onclick="location.href='chat.html'">
+          <div class="icon">💬</div><div class="name">chat.log —— チャット履歴</div><div class="size">5.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='guestbook.html'">
+          <div class="icon">📖</div><div class="name">guestbook.html —— 掲示板</div><div class="size">2.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— ニュースアーカイブ</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='forum.html'">
+          <div class="icon">💭</div><div class="name">forum.html —— フォーラムスレッド</div><div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— 失踪者ファイル</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">不明</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔒</div><div class="name">decode.html —— ???</div><div class="size">不明</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— 最後の録音</div><div class="size">不明</div>
+        </div>
+      </div>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🕰️ ドライブ情報</strong><br>
+        ボリュームラベル：QC-2009 · ファイルシステム：FAT32 · 容量：20 GB<br>
+        所有者：沈黙（シェン・モー / 青川テレビ · 音響エンジニア）<br>
+        最終アクセス：2009年4月17日 · 23:59:59
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="ファイルを検索…（「日記」「ターミナル」「解読」）" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('すべての進行状況をリセットしますか？')){resetState();location.reload();}">進行状況をリセット</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('ファイルは保護されています。先にターミナルのパスワードを見つけてください。');
+}
+function goDecode() {
+  const s = getState();
+  if (s.decodeUnlocked) location.href = 'decode.html';
+  else alert('ファイルは保護されています。先に解読キーを見つけてください。');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = '解除済み';
+  }
+  if (s.decodeUnlocked) {
+    const f = document.getElementById('file-decode');
+    f.querySelector('.icon').textContent = '🔓';
+    f.querySelector('.size').textContent = '解除済み';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = '解除済み';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('ファイルは保護されています。先にターミナルで解除してください。');
+    };
+  }
+});
+</script>
+</body>
+</html>

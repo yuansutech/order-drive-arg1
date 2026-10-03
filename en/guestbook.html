@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guestbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">guestbook.html —— Guestbook</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">The guestbook ran from 2008 to 2009. After the last entry, the site never updated again.</p>
+      <div class="guest-entry">
+        <span class="who">web_vistor</span><span class="when">2008-05-20 14:32</span>
+        <div class="text">Nice blog. Good photos.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">colleague_li</span><span class="when">2008-09-12 09:15</span>
+        <div class="text">Shen, nobody at the station knew you had this kind of thing in you.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">Xiaoman Lin</span><span class="when">2008-12-25 00:01</span>
+        <div class="text">Merry Christmas. This is my first — and last — message on your site. By the time you read it, I might be gone.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">Anonymous</span><span class="when">2009-04-18 03:17</span>
+        <div class="text" style="color:#c98a4b;">Stop looking. Forget her.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">Anonymous</span><span class="when">2009-04-18 03:19</span>
+        <div class="text" style="color:#c98a4b;">The site disappears tomorrow. So do you.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">Mo Shen</span><span class="when">2009-04-18 04:00</span>
+        <div class="text">I won't delete it. I'll make a drive backup. If I'm gone, someone will find it.</div>
+      </div>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>📌 NOTE</strong><br>
+        The last three messages came in the early hours of April 18, 2009. Mo Shen was never seen again after 04:00.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📖 Guestbook: April 18, 2009 — someone warned Mo Shen to "stop looking."');
+});
+</script>
+</body>
+</html>

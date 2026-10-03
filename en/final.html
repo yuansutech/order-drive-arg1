@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Last Recording</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .audio-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: #121215; border: 1px solid #26262b;
+    border-radius: 8px; padding: 12px 18px;
+    margin: 20px 0; font-size: 0.82rem; color: #8a8579;
+  }
+  .audio-bar .icon { font-size: 1.2rem; color: #7fb4c9; }
+  .audio-bar .label { flex: 1; letter-spacing: 0.08em; }
+  .audio-bar button {
+    padding: 7px 16px; background: #232326;
+    border: 1px solid #45454c; border-radius: 5px;
+    color: #c8c4bc; font-family: inherit;
+    font-size: 0.8rem; cursor: pointer; transition: all 0.15s;
+  }
+  .audio-bar button:hover { border-color: #7fb4c9; color: #7fb4c9; }
+  .audio-bar button.playing {
+    border-color: #7fb4c9; color: #7fb4c9;
+    background: rgba(127,180,201,0.08);
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="final-recording.mp3" preload="auto"></audio>
+
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">final.html —— The Last Recording · 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="audio-bar">
+        <span class="icon">🎙️</span>
+        <span class="label">Final Recording (in Chinese) · Xiaoman Lin's Last Voice · 53 sec</span>
+        <button id="audioBtn" onclick="toggleAudio()">▶ Play</button>
+      </div>
+
+      <p class="dim">The audio was recovered deep in the corrupted sectors. The transcript is below; you can also hear her voice in Chinese.</p>
+
+      <div style="background:#0a0a0a;color:#00ff41;padding:24px;border-radius:6px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2;margin:20px 0;">
+        <p>[RECORDING STARTS]</p>
+        <p>…It's April 16. Last episode.</p>
+        <p>The guest didn't show. I talked to the camera alone for forty minutes.</p>
+        <p>I talked about the South District land. Demolished in 2003. Sold in 2009. In the six years between, the value went up forty times.</p>
+        <p>I talked about the money. I talked about the people.</p>
+        <p>I know this episode won't air.</p>
+        <p>But I backed up the recording. In a place only he and I know.</p>
+        <p>If you're hearing this—</p>
+        <p>Then someone found it.</p>
+        <p>Don't fight for me. Hand the recording to whoever it should go to, and forget me.</p>
+        <p>Qingchuan summers are hot, but there's wind at night.</p>
+        <p>That's all.</p>
+        <p>[RECORDING ENDS]</p>
+      </div>
+
+      <img src="images/sea.jpg" style="width:100%;border-radius:6px;margin:20px 0;filter:saturate(0.6) brightness(0.75);" alt="">
+
+      <div style="text-align:center;padding:20px 0;">
+        <p style="color:#7fb4c9;font-size:1rem;letter-spacing:0.15em;">— END —</p>
+        <p class="dim" style="margin-top:8px;">Thank you for making it this far.</p>
+        <p class="dim" style="margin-top:24px;font-size:0.75rem;">Xiaoman Lin · 1983-2009 · The voice of Qingchuan</p>
+        <p class="dim" style="font-size:0.75rem;">Mo Shen · 1981-2009 · He kept her voice</p>
+      </div>
+
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🕰️ AFTER</strong><br>
+        May 2009 — the South District land was acquired. 2011 — Qingchuan Wanda Plaza opened.<br>
+        Xiaoman Lin's case remains open. Mo Shen's site was turned into a drive backup and passed around.<br>
+        You are the 47th person to find it.
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="if(confirm('Reset all progress?')){resetState();location.href='index.html';}">Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('audioBtn');
+  function toggleAudio() {
+    if (bgm.paused) {
+      bgm.play(); btn.textContent = '⏸ Pause'; btn.classList.add('playing');
+    } else {
+      bgm.pause(); btn.textContent = '▶ Play'; btn.classList.remove('playing');
+    }
+  }
+  bgm.addEventListener('ended', () => {
+    btn.textContent = '▶ Play'; btn.classList.remove('playing');
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    bgm.volume = 0.85;
+    bgm.play().then(() => {
+      btn.textContent = '⏸ Pause'; btn.classList.add('playing');
+    }).catch(() => {});
+  });
+</script>
+</body>
+</html>

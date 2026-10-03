@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Missing Person File</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— Qingchuan Police Department</div>
+    </div>
+    <div class="window-body">
+      <p><strong>Name:</strong> Xiaoman Lin</p>
+      <p><strong>Sex:</strong> Female</p>
+      <p><strong>Born:</strong> 1983</p>
+      <p><strong>Missing since:</strong> <span class="hl">April 17, 2009</span></p>
+      <p><strong>Last seen:</strong> South District, Qingchuan</p>
+      <p><strong>Status:</strong> <span class="warn">UNRESOLVED</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">On the evening of April 17, 2009, Xiaoman Lin left the TV station dormitory and did not return. Her roommate reported it the next morning.</p>
+      <p class="dim">Her laptop was found in her room; the hard drive had been formatted.</p>
+      <p class="dim">In her office drawer was a photo of the South District factory site, with the number 0417 written on the back.</p>
+      <p class="dim">That land was acquired by a real estate company in May 2009.</p>
+      <p class="warn" style="margin-top:12px;">Case remains open.</p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🔑 FILE NUMBER</strong><br>
+        QC2009-0417<br>
+        This number is simultaneously: the date of disappearance + the number on the photo + Xiaoman's birthday.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 File number QC2009-0417 confirms password 0417.');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>终端</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">terminal.html —— QC-2009 系统终端</div>
+    </div>
+    <div class="window-body">
+      <div class="terminal" id="term">
+        <div class="line">QC-2009 系统终端 v1.0</div>
+        <div class="line">所有者：沈默</div>
+        <div class="line">输入 <span class="ok">help</span> 查看可用命令。</div>
+        <div class="line">&nbsp;</div>
+      </div>
+      <div style="display:flex;align-items:center;margin-top:12px;">
+        <span class="mono" style="color:#00ff41;margin-right:8px;">&gt;</span>
+        <input type="text" id="term-input" class="mono" style="flex:1;background:#0a0a0a;border:1px solid #2e2e33;color:#00ff41;padding:8px 12px;border-radius:4px;outline:none;" autocomplete="off" autofocus>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+const term = document.getElementById('term');
+const input = document.getElementById('term-input');
+
+function print(text, cls = '') {
+  const div = document.createElement('div');
+  div.className = 'line ' + cls;
+  div.innerHTML = text;
+  term.appendChild(div);
+  term.scrollTop = term.scrollHeight;
+}
+
+const COMMANDS = {
+  help: () => {
+    print('可用命令：');
+    print('  ls              列出文件');
+    print('  cat [file]      查看文件内容');
+    print('  unlock [pwd]    解锁受保护文件');
+    print('  clear           清屏');
+    print('  exit            退出');
+  },
+  ls: () => {
+    print('home.html   about.html   diary/   photos/');
+    print('chat.log    guestbook.html   news.html');
+    print('forum.html  missing.html');
+    print('<span class="ok">final.txt</span>  [受保护]');
+  },
+  'cat final.txt': () => {
+    print('文件受保护。请先使用 unlock 命令。', 'err');
+  },
+  'cat final': () => {
+    print('文件受保护。请先使用 unlock 命令。', 'err');
+  },
+  unlock: () => {
+    print('用法：unlock [4位数字密码]');
+  },
+  clear: () => { term.innerHTML = ''; },
+  exit: () => { location.href = 'index.html'; }
+};
+
+function handleCommand(raw) {
+  const cmd = raw.trim().toLowerCase();
+  if (!cmd) return;
+  print('&gt; ' + raw);
+
+  if (cmd === 'unlock 0417' || cmd === 'unlock0417') {
+    setState({ finalUnlocked: true });
+    saveNote('🔓 终端解锁成功！final.txt 已解密');
+    print('<span class="ok">密码正确。final.txt 已解密。</span>');
+    print('你现在可以访问 final.html 了。');
+    print('返回 <a href="index.html" style="color:#7ee0ff;">硬盘首页</a> 查看。');
+    return;
+  }
+
+  if (cmd.startsWith('unlock ')) {
+    print('密码错误。', 'err');
+    return;
+  }
+
+  if (COMMANDS[cmd]) { COMMANDS[cmd](); return; }
+
+  print('未知命令：' + raw, 'err');
+}
+
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const v = input.value;
+    input.value = '';
+    handleCommand(v);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!getState().terminalUnlocked) {
+    document.querySelector('.window-body').innerHTML = `
+      <div class="terminal">
+        <div class="line err">访问被拒绝。终端需要密码。</div>
+        <div class="line">提示：密码是四位数。你在别的地方见过它。</div>
+      </div>
+      <div style="text-align:center;margin-top:16px;">
+        <input type="text" id="term-pwd" class="puzzle-input" maxlength="4" placeholder="····">
+        <button class="btn primary" style="margin-left:8px;" onclick="checkTermPwd()">解锁</button>
+      </div>
+    `;
+  }
+});
+
+function checkTermPwd() {
+  const v = document.getElementById('term-pwd').value.trim();
+  if (v === '0315') {
+    setState({ terminalUnlocked: true });
+    saveNote('🔓 终端解锁，密码：0315（第一次见面日期）');
+    location.reload();
+  } else {
+    alert('密码错误。');
+  }
+}
+</script>
+</body>
+</html>

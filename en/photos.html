@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Photo Wall</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">photos/ —— 4 files · 2 corrupted</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">Photos from the drive. Click to view.</p>
+      <div class="photo-grid">
+        <div class="photo-cell" onclick="alert('Photo 1: Outside the TV station. March 15, 2008. Xiaoman\'s first day.')">
+          <img src="images/door.jpg" alt="">
+          <div class="caption">IMG_001.jpg · 2008-03-15</div>
+        </div>
+        <div class="photo-cell" onclick="alert('Photo 2: South District factory site. April 2009. The back reads 0417.')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[DATA CORRUPTED]</div>
+          <div class="caption">IMG_002.jpg · 2009-04-XX (corrupted)</div>
+        </div>
+        <div class="photo-cell" onclick="alert('Photo 3: Recording booth. Xiaoman recording her last episode. April 16, 2009.')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[DATA CORRUPTED]</div>
+          <div class="caption">IMG_003.jpg · 2009-04-16 (corrupted)</div>
+        </div>
+        <div class="photo-cell" onclick="revealPhoto4()">
+          <img src="images/envelope.jpg" alt="">
+          <div class="caption">IMG_004.jpg · 2009-04-17</div>
+        </div>
+      </div>
+      <div class="timetower" id="photo-hint" style="display:none;">
+        <strong>🔑 HIDDEN CLUE</strong><br>
+        Photo 4 metadata contains the number: <span class="hl">8821</span><br>
+        That's Mo Shen's employee ID. He had it etched onto his recording equipment.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function revealPhoto4() {
+  document.getElementById('photo-hint').style.display = 'block';
+  saveNote('📷 Photo 4 metadata: 8821 (Mo Shen\'s employee ID)');
+  alert('Photo 4: An envelope. Taken April 17, 2009. On the back: 8821');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>解読ツール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">decode.html —— 沈黙の解読ツール</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">沈黙が書いた小さなツール。断片を組み合わせてパスワードにする。</p>
+      <p>見つけた数字の断片を入力してください。システムが組み合わせを試します。</p>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">断片1（日記）：</label>
+        <input type="text" id="f1" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">断片2（写真）：</label>
+        <input type="text" id="f2" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">断片3（チャット）：</label>
+        <input type="text" id="f3" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <button class="btn primary" onclick="tryDecode()" style="margin-top:16px;">解読を試す</button>
+      <p id="decode-result" style="margin-top:16px;"></p>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>💡 ヒント</strong><br>
+        3つの断片、それぞれ4桁。全部一致すれば完全なパスワードが表示される。
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function tryDecode() {
+  const f1 = document.getElementById('f1').value.trim();
+  const f2 = document.getElementById('f2').value.trim();
+  const f3 = document.getElementById('f3').value.trim();
+  const r = document.getElementById('decode-result');
+  if (f1 === '0315' && f2 === '8821' && f3 === '0417') {
+    r.innerHTML = '<span style="color:#7ee0ff;">✅ 解読成功。完全なキー：<strong>0417-0315-8821</strong></span>';
+    saveNote('🔓 解読成功：0417-0315-8821');
+  } else {
+    r.innerHTML = '<span style="color:#ff5f57;">❌ 断片が一致しません。各数字を確認してください。</span>';
+  }
+}
+</script>
+</body>
+</html>

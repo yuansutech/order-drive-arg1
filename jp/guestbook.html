@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>掲示板</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">guestbook.html —— 掲示板</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">この掲示板は2008年から2009年まで稼働していた。最後の書き込みの後、サイトは更新されていない。</p>
+      <div class="guest-entry">
+        <span class="who">通りすがり</span><span class="when">2008-05-20 14:32</span>
+        <div class="text">ブログいいね。写真も上手い。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">同僚の李</span><span class="when">2008-09-12 09:15</span>
+        <div class="text">沈さん、局の誰もあんたにこんな趣味があるなんて知らなかったよ。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">林小満</span><span class="when">2008-12-25 00:01</span>
+        <div class="text">メリークリスマス。これがあなたのサイトへの最初で最後の書き込み。あなたが読む頃には、私はいないかもしれない。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">匿名</span><span class="when">2009-04-18 03:17</span>
+        <div class="text" style="color:#c98a4b;">もう探すな。彼女を忘れろ。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">匿名</span><span class="when">2009-04-18 03:19</span>
+        <div class="text" style="color:#c98a4b;">サイトは明日消える。お前もな。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">沈黙</span><span class="when">2009-04-18 04:00</span>
+        <div class="text">消さない。ドライブにバックアップする。俺がいなくなったら、誰かが見つける。</div>
+      </div>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>📌 注意</strong><br>
+        最後の3件は2009年4月18日未明に書き込まれた。沈黙は04:00以降、誰にも姿を見せていない。
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📖 掲示板：2009年4月18日未明、誰かが沈黙に「探すのをやめろ」と警告。');
+});
+</script>
+</body>
+</html>

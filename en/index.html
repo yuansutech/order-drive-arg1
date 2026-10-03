@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Local Disk (D:) · QC-2009</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">D:\QC-2009\ —— READ-ONLY BACKUP · FILESYSTEM CORRUPTED</div>
+    </div>
+    <div class="window-body">
+      <p class="cold">You plug in the old drive. The label reads "QC-2009". The sticker has yellowed with age.</p>
+      <p>Inside, there is only one folder: <span class="hl">qingchuan-memory</span>.</p>
+      <p class="cold">Last modified: April 17, 2009 · 23:59:59</p>
+      <p class="warn">⚠️ Some files are corrupted. They must be repaired before access.</p>
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📁</div><div class="name">home.html —— Qingchuan Memory · Home</div><div class="size">4.2 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— About Mo Shen</div><div class="size">3.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary.html'">
+          <div class="icon">📁</div><div class="name">diary/ —— Mo Shen's Diary</div><div class="size">3 entries, 1 encrypted</div>
+        </div>
+        <div class="file-item" onclick="location.href='photos.html'">
+          <div class="icon">🖼️</div><div class="name">photos/ —— Photo Wall</div><div class="size">4 files, 2 corrupted</div>
+        </div>
+        <div class="file-item" onclick="location.href='chat.html'">
+          <div class="icon">💬</div><div class="name">chat.log —— Chat History</div><div class="size">5.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='guestbook.html'">
+          <div class="icon">📖</div><div class="name">guestbook.html —— Guestbook</div><div class="size">2.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— News Archive</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='forum.html'">
+          <div class="icon">💭</div><div class="name">forum.html —— Forum Thread</div><div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— Missing Person File</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">UNKNOWN</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔒</div><div class="name">decode.html —— ???</div><div class="size">UNKNOWN</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— Last Recording</div><div class="size">UNKNOWN</div>
+        </div>
+      </div>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🕰️ DRIVE INFO</strong><br>
+        Volume label: QC-2009 · Filesystem: FAT32 · Capacity: 20 GB<br>
+        Owner: Mo Shen (QCTV · Sound Engineer)<br>
+        Last accessed: April 17, 2009 · 23:59:59
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search files… (try 'diary', 'terminal', 'decode')" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('Reset all progress?')){resetState();location.reload();}">Reset Progress</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('File protected. Find the terminal password first.');
+}
+function goDecode() {
+  const s = getState();
+  if (s.decodeUnlocked) location.href = 'decode.html';
+  else alert('File protected. Find the decode key first.');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = 'UNLOCKED';
+  }
+  if (s.decodeUnlocked) {
+    const f = document.getElementById('file-decode');
+    f.querySelector('.icon').textContent = '🔓';
+    f.querySelector('.size').textContent = 'UNLOCKED';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = 'UNLOCKED';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('File protected. Unlock via the terminal first.');
+    };
+  }
+});
+</script>
+</body>
+</html>

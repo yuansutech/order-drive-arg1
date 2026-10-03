@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>방명록</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">guestbook.html —— 방명록</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">이 방명록은 2008년부터 2009년까지 운영되었다. 마지막 글 이후 사이트는 갱신되지 않았다.</p>
+      <div class="guest-entry">
+        <span class="who">지나가던 사람</span><span class="when">2008-05-20 14:32</span>
+        <div class="text">블로그 좋네요. 사진도 잘 찍으시네요.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">동료 이</span><span class="when">2008-09-12 09:15</span>
+        <div class="text">선 씨, 방송국 사람들은 당신한테 이런 게 있는 줄 몰랐어요.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">린샤오만</span><span class="when">2008-12-25 00:01</span>
+        <div class="text">메리 크리스마스. 이게 당신 사이트에 남기는 첫 번째이자 마지막 메시지. 당신이 이걸 읽을 때쯤, 나는 없을지도 몰라.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">익명</span><span class="when">2009-04-18 03:17</span>
+        <div class="text" style="color:#c98a4b;">그만 찾아. 그녀를 잊어.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">익명</span><span class="when">2009-04-18 03:19</span>
+        <div class="text" style="color:#c98a4b;">사이트는 내일 사라져. 너도.</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">선모</span><span class="when">2009-04-18 04:00</span>
+        <div class="text">안 지울 거야. 드라이브에 백업할 거야. 내가 없어지면 누군가 찾겠지.</div>
+      </div>
+      <div class="timetower" style="margin-top:24px;">
+        <strong>📌 주의</strong><br>
+        마지막 세 글은 2009년 4월 18일 새벽에 올라왔다. 선모는 04:00 이후 아무에게도 모습을 보이지 않았다.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📖 방명록: 2009년 4월 18일 새벽, 누군가 선모에게 "그만 찾아"라고 경고.');
+});
+</script>
+</body>
+</html>

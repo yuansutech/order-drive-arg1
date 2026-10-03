@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>마지막 녹음</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .audio-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: #121215; border: 1px solid #26262b;
+    border-radius: 8px; padding: 12px 18px;
+    margin: 20px 0; font-size: 0.82rem; color: #8a8579;
+  }
+  .audio-bar .icon { font-size: 1.2rem; color: #7fb4c9; }
+  .audio-bar .label { flex: 1; letter-spacing: 0.08em; }
+  .audio-bar button {
+    padding: 7px 16px; background: #232326;
+    border: 1px solid #45454c; border-radius: 5px;
+    color: #c8c4bc; font-family: inherit;
+    font-size: 0.8rem; cursor: pointer; transition: all 0.15s;
+  }
+  .audio-bar button:hover { border-color: #7fb4c9; color: #7fb4c9; }
+  .audio-bar button.playing {
+    border-color: #7fb4c9; color: #7fb4c9;
+    background: rgba(127,180,201,0.08);
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="final-recording.mp3" preload="auto"></audio>
+
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">final.html —— 마지막 녹음 · 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="audio-bar">
+        <span class="icon">🎙️</span>
+        <span class="label">마지막 녹음(중국어) · 린샤오만의 마지막 목소리 · 53초</span>
+        <button id="audioBtn" onclick="toggleAudio()">▶ 재생</button>
+      </div>
+
+      <p class="dim">손상된 섹터 깊은 곳에서 오디오를 되찾았습니다. 아래는 변환본이며, 그녀의 목소리(중국어)를 직접 들을 수도 있습니다.</p>
+
+      <div style="background:#0a0a0a;color:#00ff41;padding:24px;border-radius:6px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2;margin:20px 0;">
+        <p>[녹음 시작]</p>
+        <p>…오늘은 4월 16일. 마지막 회.</p>
+        <p>게스트는 오지 않았다. 카메라를 향해 혼자 40분 동안 말했다.</p>
+        <p>남부 지역 땅에 대해 말했다. 2003년 철거, 2009년 매각. 그 사이 6년 동안 땅값은 40배가 됐다.</p>
+        <p>돈에 대해 말했다. 사람들에 대해 말했다.</p>
+        <p>이 회가 방송되지 않을 거라는 걸 안다.</p>
+        <p>하지만 녹음은 백업해뒀다. 그와 나만 아는 곳에.</p>
+        <p>만약 이걸 듣고 있다면—</p>
+        <p>누군가 찾았다는 뜻이다.</p>
+        <p>나를 위해 싸우지 마. 녹음을 마땅한 사람에게 넘기고, 나를 잊어.</p>
+        <p>칭촨의 여름은 덥다. 하지만 밤에는 바람이 분다.</p>
+        <p>그게 전부야.</p>
+        <p>[녹음 종료]</p>
+      </div>
+
+      <img src="images/sea.jpg" style="width:100%;border-radius:6px;margin:20px 0;filter:saturate(0.6) brightness(0.75);" alt="">
+
+      <div style="text-align:center;padding:20px 0;">
+        <p style="color:#7fb4c9;font-size:1rem;letter-spacing:0.15em;">— 끝 —</p>
+        <p class="dim" style="margin-top:8px;">여기까지 와줘서 고마워.</p>
+        <p class="dim" style="margin-top:24px;font-size:0.75rem;">린샤오만 · 1983-2009 · 칭촨의 영원한 목소리</p>
+        <p class="dim" style="font-size:0.75rem;">선모 · 1981-2009 · 그는 그녀의 목소리를 지켰다</p>
+      </div>
+
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🕰️ 그 후</strong><br>
+        2009년 5월, 남부 지역 땅이 인수되었다. 2011년, 칭촨 완다 플라자가 개업.<br>
+        린샤오만 사건은 미해결로 남아 있다. 선모의 사이트는 드라이브 백업이 되어 사람들 사이를 떠돌았다.<br>
+        너는 47번째로 찾은 사람이다.
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="if(confirm('모든 진행 상황을 초기화하시겠습니까?')){resetState();location.href='index.html';}">처음부터</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('audioBtn');
+  function toggleAudio() {
+    if (bgm.paused) {
+      bgm.play(); btn.textContent = '⏸ 일시정지'; btn.classList.add('playing');
+    } else {
+      bgm.pause(); btn.textContent = '▶ 재생'; btn.classList.remove('playing');
+    }
+  }
+  bgm.addEventListener('ended', () => {
+    btn.textContent = '▶ 재생'; btn.classList.remove('playing');
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    bgm.volume = 0.85;
+    bgm.play().then(() => {
+      btn.textContent = '⏸ 일시정지'; btn.classList.add('playing');
+    }).catch(() => {});
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>写真</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">photos/ —— 4件 · うち2件破損</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">ドライブ内の写真。クリックで表示。</p>
+      <div class="photo-grid">
+        <div class="photo-cell" onclick="alert('写真1：テレビ局の前。2008年3月15日。小満の初出勤日。')">
+          <img src="images/door.jpg" alt="">
+          <div class="caption">IMG_001.jpg · 2008-03-15</div>
+        </div>
+        <div class="photo-cell" onclick="alert('写真2：南地区の工場跡地。2009年4月。裏に 0417 と書かれている。')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[データ破損]</div>
+          <div class="caption">IMG_002.jpg · 2009-04-XX（破損）</div>
+        </div>
+        <div class="photo-cell" onclick="alert('写真3：録音ブース。小満が最終回を収録中。2009年4月16日。')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[データ破損]</div>
+          <div class="caption">IMG_003.jpg · 2009-04-16（破損）</div>
+        </div>
+        <div class="photo-cell" onclick="revealPhoto4()">
+          <img src="images/envelope.jpg" alt="">
+          <div class="caption">IMG_004.jpg · 2009-04-17</div>
+        </div>
+      </div>
+      <div class="timetower" id="photo-hint" style="display:none;">
+        <strong>🔑 隠された手がかり</strong><br>
+        写真4のメタデータに数字がある：<span class="hl">8821</span><br>
+        これは沈黙の社員番号。録音機材に刻まれていた。
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function revealPhoto4() {
+  document.getElementById('photo-hint').style.display = 'block';
+  saveNote('📷 写真4のメタデータ：8821（沈黙の社員番号）');
+  alert('写真4：封筒。2009年4月17日撮影。裏に 8821 と書かれている。');
+}
+</script>
+</body>
+</html>

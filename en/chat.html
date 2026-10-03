@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Chat Log</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">chat.log —— 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="chat">
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 23:47</div>
+          <div class="bubble">Done recording?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:48</div>
+          <div class="bubble">Just wrapped up.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 23:49</div>
+          <div class="bubble">When are you coming home? I'll pick you up.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:50</div>
+          <div class="bubble">No need. I still have to go to the South District.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 23:51</div>
+          <div class="bubble">South District? At this hour, why?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:53</div>
+          <div class="bubble">Picking something up. Someone asked to meet me.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 23:54</div>
+          <div class="bubble">Who?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:56</div>
+          <div class="bubble">A show guest. He said he has something for me.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:57</div>
+          <div class="bubble">Don't worry. I'll be back soon.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:58</div>
+          <div class="bubble">By the way, if I don't make it back—</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">XL</div>
+          <div><div class="meta">Xiaoman Lin · 23:59</div>
+          <div class="bubble recalled">[Message recalled]</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 00:01</div>
+          <div class="bubble">Don't make it back from what? Say it clearly.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 00:03</div>
+          <div class="bubble">Xiaoman?</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">MS</div>
+          <div><div class="meta">Mo Shen · 00:15</div>
+          <div class="bubble">Why is your phone off.</div></div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>🔑 THE RECALLED MESSAGE</strong><br>
+        <span class="hidden-reveal">Hover here to see
+          <span class="secret">Mo Shen later recovered the data. The message said: "Password is 0417. Don't forget me."</span>
+        </span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="Search…" autocomplete="off">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('💬 Xiaoman went to meet a "show guest" in the South District.');
+  const reveal = document.querySelector('.hidden-reveal');
+  if (reveal) {
+    reveal.addEventListener('mouseenter', () => {
+      saveNote('🔑 Recalled message: "Password is 0417. Don\'t forget me."');
+    });
+  }
+});
+</script>
+</body>
+</html>

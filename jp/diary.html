@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>日記一覧</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">diary/ —— 沈黙の日記</div>
+    </div>
+    <div class="window-body">
+      <div class="file-list">
+        <div class="file-item" onclick="location.href='diary-01.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-01.txt —— 2008-03-15 · 出会い</div>
+          <div class="size">2.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary-02.html'">
+          <div class="icon">📄</div>
+          <div class="name">diary-02.txt —— 2009-04-10 · 彼女は調査を始めた</div>
+          <div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item locked" id="diary-03">
+          <div class="icon">🔒</div>
+          <div class="name">diary-03.txt —— 2009-04-17 · 最後の日記</div>
+          <div class="size">パスワード必要</div>
+        </div>
+      </div>
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🔑 パスワードのヒント</strong><br>
+        3つ目の日記は暗号化されている。沈黙は別の場所にヒントを残した——<br>
+        「パスワードは初めて会った日。形式：MMDD」
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="検索…" autocomplete="off">
+        <button>検索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  const el = document.getElementById('diary-03');
+  if (s.diaryUnlocked) {
+    el.classList.remove('locked');
+    el.onclick = () => location.href = 'diary-03.html';
+    el.querySelector('.icon').textContent = '📄';
+    el.querySelector('.size').textContent = '解除済み';
+  } else {
+    el.onclick = () => {
+      const pwd = prompt('4桁のパスワードを入力：');
+      if (!pwd) return;
+      if (pwd === '0315') {
+        setState({ diaryUnlocked: true });
+        saveNote('🔓 diary-03を解除。パスワード：0315（初めて会った日）');
+        location.href = 'diary-03.html';
+      } else {
+        alert('パスワードが違います。');
+      }
+    };
+  }
+});
+</script>
+</body>
+</html>

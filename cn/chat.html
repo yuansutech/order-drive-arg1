@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>聊天记录</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">chat.log —— 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="chat">
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 23:47</div>
+          <div class="bubble">录完了吗？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:48</div>
+          <div class="bubble">录完了。刚收工。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 23:49</div>
+          <div class="bubble">什么时候回来？我去接你。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:50</div>
+          <div class="bubble">不用。我还得去城南一趟。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 23:51</div>
+          <div class="bubble">这么晚了去城南干嘛？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:53</div>
+          <div class="bubble">拿个东西。有人约我。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 23:54</div>
+          <div class="bubble">谁？</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:56</div>
+          <div class="bubble">节目嘉宾。他说手里有东西要给我。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:57</div>
+          <div class="bubble">别担心。我很快就回来。</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:58</div>
+          <div class="bubble">对了，如果我真的回不来——</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">满</div>
+          <div><div class="meta">林小满 · 23:59</div>
+          <div class="bubble recalled">[对方撤回了一条消息]</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 00:01</div>
+          <div class="bubble">回什么？你说清楚。</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 00:03</div>
+          <div class="bubble">小满？</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">沈</div>
+          <div><div class="meta">沈默 · 00:15</div>
+          <div class="bubble">你手机怎么关机了。</div></div>
+        </div>
+      </div>
+
+      <div class="timetower">
+        <strong>🔑 被撤回的消息</strong><br>
+        <span class="hidden-reveal">把鼠标放在这里看看
+          <span class="secret">沈默后来恢复了数据。消息内容是："密码是 0417。别忘了我。"</span>
+        </span>
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="搜索…" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('💬 林小满最后去见一个"节目嘉宾"，地点城南');
+  const reveal = document.querySelector('.hidden-reveal');
+  if (reveal) {
+    reveal.addEventListener('mouseenter', () => {
+      saveNote('🔑 被撤回的消息："密码是 0417。别忘了我。"');
+    });
+  }
+});
+</script>
+</body>
+</html>

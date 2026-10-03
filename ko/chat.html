@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>채팅 기록</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">chat.log —— 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="chat">
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 23:47</div>
+          <div class="bubble">녹음 끝났어?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:48</div>
+          <div class="bubble">방금 끝났어. 정리 중이야.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 23:49</div>
+          <div class="bubble">언제 와? 데리러 갈게.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:50</div>
+          <div class="bubble">괜찮아. 아직 남부 지역에 가야 해.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 23:51</div>
+          <div class="bubble">이 시간에 남부 지역에 왜?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:53</div>
+          <div class="bubble">물건 가지러. 누가 부탁했어.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 23:54</div>
+          <div class="bubble">누가?</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:56</div>
+          <div class="bubble">프로그램 게스트. 나한테 줄 게 있다고 했어.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:57</div>
+          <div class="bubble">걱정 마. 금방 돌아와.</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:58</div>
+          <div class="bubble">그러고 보니, 만약 내가 못 돌아오면—</div></div>
+        </div>
+        <div class="chat-msg right">
+          <div class="avatar">만</div>
+          <div><div class="meta">린샤오만 · 23:59</div>
+          <div class="bubble recalled">[메시지 회수됨]</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 00:01</div>
+          <div class="bubble">못 돌아오면 뭐? 확실히 말해.</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 00:03</div>
+          <div class="bubble">샤오만?</div></div>
+        </div>
+        <div class="chat-msg">
+          <div class="avatar">선</div>
+          <div><div class="meta">선모 · 00:15</div>
+          <div class="bubble">왜 전원이 꺼져 있어.</div></div>
+        </div>
+      </div>
+      <div class="timetower">
+        <strong>🔑 회수된 메시지</strong><br>
+        <span class="hidden-reveal">여기에 마우스를 올려보세요
+          <span class="secret">선모가 나중에 데이터를 복구했다. 메시지 내용: "비밀번호는 0417. 나를 잊지 마."</span>
+        </span>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('💬 샤오만이 남부 지역에서 "프로그램 게스트"를 만나러 갔다.');
+  const reveal = document.querySelector('.hidden-reveal');
+  if (reveal) {
+    reveal.addEventListener('mouseenter', () => {
+      saveNote('🔑 회수된 메시지: "비밀번호는 0417. 나를 잊지 마."');
+    });
+  }
+});
+</script>
+</body>
+</html>

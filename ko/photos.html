@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>사진</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">photos/ —— 4개 · 그중 2개 손상</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">드라이브 안의 사진. 클릭해서 보기.</p>
+      <div class="photo-grid">
+        <div class="photo-cell" onclick="alert('사진 1: 방송국 앞. 2008년 3월 15일. 샤오만의 첫 출근 날.')">
+          <img src="images/door.jpg" alt="">
+          <div class="caption">IMG_001.jpg · 2008-03-15</div>
+        </div>
+        <div class="photo-cell" onclick="alert('사진 2: 남부 지역 공장 부지. 2009년 4월. 뒤에 0417이라고 적혀 있다.')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[데이터 손상]</div>
+          <div class="caption">IMG_002.jpg · 2009-04-XX (손상)</div>
+        </div>
+        <div class="photo-cell" onclick="alert('사진 3: 녹음 부스. 샤오만이 마지막 회를 녹음 중. 2009년 4월 16일.')">
+          <div style="width:100%;height:100%;background:#1a1a1d;display:flex;align-items:center;justify-content:center;color:#6e6b64;font-size:0.8rem;">[데이터 손상]</div>
+          <div class="caption">IMG_003.jpg · 2009-04-16 (손상)</div>
+        </div>
+        <div class="photo-cell" onclick="revealPhoto4()">
+          <img src="images/envelope.jpg" alt="">
+          <div class="caption">IMG_004.jpg · 2009-04-17</div>
+        </div>
+      </div>
+      <div class="timetower" id="photo-hint" style="display:none;">
+        <strong>🔑 숨겨진 단서</strong><br>
+        사진 4의 메타데이터에 숫자가 있다: <span class="hl">8821</span><br>
+        이것은 선모의 사원 번호. 녹음 장비에 새겨져 있었다.
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="검색…" autocomplete="off">
+        <button>검색</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function revealPhoto4() {
+  document.getElementById('photo-hint').style.display = 'block';
+  saveNote('📷 사진 4 메타데이터: 8821 (선모의 사원 번호)');
+  alert('사진 4: 봉투. 2009년 4월 17일 촬영. 뒤에 8821이라고 적혀 있다.');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>最后一段录音</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .audio-bar {
+    display: flex; align-items: center; gap: 12px;
+    background: #121215; border: 1px solid #26262b;
+    border-radius: 8px; padding: 12px 18px;
+    margin: 20px 0; font-size: 0.82rem; color: #8a8579;
+  }
+  .audio-bar .icon { font-size: 1.2rem; color: #7fb4c9; }
+  .audio-bar .label { flex: 1; letter-spacing: 0.08em; }
+  .audio-bar button {
+    padding: 7px 16px; background: #232326;
+    border: 1px solid #45454c; border-radius: 5px;
+    color: #c8c4bc; font-family: inherit;
+    font-size: 0.8rem; cursor: pointer; transition: all 0.15s;
+  }
+  .audio-bar button:hover { border-color: #7fb4c9; color: #7fb4c9; }
+  .audio-bar button.playing {
+    border-color: #7fb4c9; color: #7fb4c9;
+    background: rgba(127,180,201,0.08);
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgm" src="final-recording.mp3" preload="auto"></audio>
+
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">final.html —— 最后一段录音 · 2009-04-16 23:47</div>
+    </div>
+    <div class="window-body">
+      <div class="audio-bar">
+        <span class="icon">🎙️</span>
+        <span class="label">磁带录音 · 林小满最后的声音 · 时长 53 秒</span>
+        <button id="audioBtn" onclick="toggleAudio()">▶ 播放</button>
+      </div>
+
+      <p class="dim">音频文件在损坏的扇区深处被找回。下面是转写稿，你也可以直接听她的声音。</p>
+
+      <div style="background:#0a0a0a;color:#00ff41;padding:24px;border-radius:6px;font-family:'Courier New',monospace;font-size:0.85rem;line-height:2;margin:20px 0;">
+        <p>[录音开始]</p>
+        <p>…今天是 4 月 16 日。最后一期。</p>
+        <p>嘉宾没来。我一个人对着镜头说了 40 分钟。</p>
+        <p>我说了城南那块地。2003 年拆迁，2009 年转手。中间的六年，地价涨了 40 倍。</p>
+        <p>我说了那笔钱。我说了那些人。</p>
+        <p>我知道这期播不出来。</p>
+        <p>但录音我备份了。放在一个只有我和他知道的地方。</p>
+        <p>如果你听到这个——</p>
+        <p>说明有人找到了。</p>
+        <p>别替我出头。把录音交给该交给的人，然后忘掉我。</p>
+        <p>青川的夏天很热，但晚上有风。</p>
+        <p>就这样吧。</p>
+        <p>[录音结束]</p>
+      </div>
+
+      <img src="images/sea.jpg" style="width:100%;border-radius:6px;margin:20px 0;filter:saturate(0.6) brightness(0.75);" alt="">
+
+      <div style="text-align:center;padding:20px 0;">
+        <p style="color:#7fb4c9;font-size:1rem;letter-spacing:0.15em;">— 完 —</p>
+        <p class="dim" style="margin-top:8px;">感谢你找到了这里。</p>
+        <p class="dim" style="margin-top:24px;font-size:0.75rem;">林小满 · 1983-2009 · 永远的青川之声</p>
+        <p class="dim" style="font-size:0.75rem;">沈默 · 1981-2009 · 他留住了她的声音</p>
+      </div>
+
+      <div class="timetower" style="margin-top:20px;">
+        <strong>🕰️ 后续</strong><br>
+        2009 年 5 月，城南地块被收购。2011 年，青川万达广场开业。<br>
+        林小满的案子至今未破。沈默的网站被制成硬盘备份，流落民间。<br>
+        你是第 47 个找到它的人。
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="if(confirm('确定要重置所有进度吗？')){resetState();location.href='index.html';}">重新开始</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('audioBtn');
+  function toggleAudio() {
+    if (bgm.paused) {
+      bgm.play(); btn.textContent = '⏸ 暂停'; btn.classList.add('playing');
+    } else {
+      bgm.pause(); btn.textContent = '▶ 播放'; btn.classList.remove('playing');
+    }
+  }
+  bgm.addEventListener('ended', () => {
+    btn.textContent = '▶ 播放'; btn.classList.remove('playing');
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    bgm.volume = 0.85;
+    bgm.play().then(() => {
+      btn.textContent = '⏸ 暂停'; btn.classList.add('playing');
+    }).catch(() => {});
+  });
+</script>
+</body>
+</html>

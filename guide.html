@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【Yuansu Tech arg】《旧硬盘 QC-2009》完整通关攻略</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+            color: #000000;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .header {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .sub-header {
+            color: #666666;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .notice {
+            color: #666666;
+            margin-bottom: 40px;
+        }
+        .notice span {
+            display: inline-block;
+            width: 90px;
+        }
+        h2 {
+            font-size: 16px;
+            margin-top: 50px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .step {
+            margin-bottom: 28px;
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+        }
+        .step-num {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .step-body {
+            color: #333;
+        }
+        .path {
+            display: block;
+            color: #666666;
+            font-size: 14px;
+            padding-left: 0;
+            margin: 6px 0;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+            color: #c00;
+        }
+        .warn { color: #c00; font-weight: bold; }
+        .ok { color: #005cc5; font-weight: bold; }
+        .gray { color: #888; }
+        .box {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #eee;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th { background: #fafafa; font-weight: bold; }
+        .footer {
+            color: #999999;
+            font-size: 13px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 20px;
+            margin-top: 60px;
+        }
+        .toc {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .toc a { color: #005cc5; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .toc ul { padding-left: 20px; }
+        .toc li { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Yuansu Tech【YUANSUTECH】<br>
+        旧硬盘 QC-2009<br>
+        完整通关攻略 · 卡关者专用
+    </div>
+
+    <div class="sub-header">
+        别慌。跟着走，一步都别跳。<br>
+        每一步都告诉你：点哪里、输什么、看到什么算成功。
+    </div>
+
+    <div class="notice">
+        <span>[出品]</span> 【原创】YuansuTech <br>
+        <span>[禁止]</span> 盗用、转载 🚫<br>
+        <span>[建议]</span> 用 Chrome 或 Edge 打开 
+    </div>
+
+    <div class="toc">
+        <strong>📖 目录</strong>
+        <ul>
+            <li><a href="#s1">第一阶段：认识沈默与林小满</a></li>
+            <li><a href="#s2">第二阶段：收集三个密码碎片</a></li>
+            <li><a href="#s3">第三阶段：验证碎片 + 解锁终端</a></li>
+            <li><a href="#s4">第四阶段：终端操作</a></li>
+            <li><a href="#s5">第五阶段：结局</a></li>
+            <li><a href="#s6">速查表 + 急救包</a></li>
+        </ul>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <div class="step">
+        <div class="step-num">0-2</div>
+        <div class="step-title">双击 index.html</div>
+        <div class="step-body">
+            浏览器打开，你看到一块旧硬盘 <code>QC-2009</code>。<br>
+            里面有 12 个文件，其中 3 个是<span class="warn">灰色锁状</span>：
+            <ul>
+                <li><code>terminal.html</code> —— ???</li>
+                <li><code>decode.html</code> —— ???</li>
+                <li><code>final.html</code> —— 最后一段录音</li>
+            </ul>
+            <span class="gray">先别管它们，从能点的开始。</span>
+        </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s1">第一阶段：认识沈默与林小满</h2>
+
+    <div class="step">
+        <div class="step-num">1-1</div>
+        <div class="step-title">点 home.html</div>
+        <div class="step-body">
+            读到站主叫 <span class="ok">沈默</span>，青川电视台音效师。<br>
+            他的女朋友 <span class="ok">林小满</span> 是主持人，<br>
+            <span class="warn">2009 年 4 月 17 日失踪</span>。<br>
+            网站是他建的，用来存放线索。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">1-2</div>
+        <div class="step-title">点 about.html</div>
+        <div class="step-body">
+            沈默说：<br>
+            <span class="ok">"3 个密码碎片分别藏在日记、照片、聊天记录里，拼起来是 4 位数字。"</span><br>
+            这就是你接下来的目标。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">📓 检查笔记本</div>
+        看到右下角有个 📓 按钮吗？点开。<br>
+        你刚才读过的关键信息已经自动记录在里面了。<br>
+        <span class="gray">后面每找到一个线索，它都会自动加进去。</span>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s2">第二阶段：收集三个密码碎片</h2>
+
+    <h3 style="margin-top:30px;font-size:14px;">碎片 1：日记 → 0315</h3>
+
+    <div class="step">
+        <div class="step-num">2-1</div>
+        <div class="step-title">点 diary.html</div>
+        <div class="step-body">
+            看到三篇日记：
+            <ul>
+                <li><code>diary-01.html</code> —— 遇见（可点）</li>
+                <li><code>diary-02.html</code> —— 她开始查了（可点）</li>
+                <li><code>diary-03.html</code> —— 最后一篇（<span class="warn">锁着</span>）</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-2</div>
+        <div class="step-title">点 diary-01.html</div>
+        <div class="step-body">
+            读到 2008 年 3 月 15 日，沈默第一次见到林小满。<br>
+            她在音控室借耳机。<br>
+            <br>
+            页面底部明写着：<br>
+            <span class="ok">第一次见面日期：3 月 15 日 → 0315</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 碎片 1</div>
+        <code>0315</code>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-3</div>
+        <div class="step-title">回 diary.html，点第三篇</div>
+        <div class="step-body">
+            弹出密码框，输入 <code>0315</code>。<br>
+            <span class="ok">✅ 解锁成功，自动跳转到 diary-03.html。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-4</div>
+        <div class="step-title">读 diary-03.html</div>
+        <div class="step-body">
+            林小满失踪当天的记录。<br>
+            她在抽屉里找到一张照片，背面写着：<br>
+            <span class="ok">0417</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 额外线索</div>
+        <code>0417</code> —— 照片背面数字
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">碎片 2：照片 → 8821</h3>
+
+    <div class="step">
+        <div class="step-num">2-5</div>
+        <div class="step-title">点 photos.html</div>
+        <div class="step-body">
+            看到 4 张照片，其中 2 张显示"数据损坏"。<br>
+            <span class="gray">损坏的那两张点了没用，别浪费时间。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-6</div>
+        <div class="step-title">点第 4 张照片</div>
+        <div class="step-body">
+            就是那张 <code>IMG_004.jpg</code>（白信封）。<br>
+            弹出提示：照片背面写着 <span class="ok">8821</span>，是沈默的工号。<br>
+            页面下方同时出现一行隐藏线索。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 碎片 2</div>
+        <code>8821</code>
+    </div>
+
+
+    <h3 style="margin-top:30px;font-size:14px;">碎片 3：聊天 → 0417</h3>
+
+    <div class="step">
+        <div class="step-num">2-7</div>
+        <div class="step-title">点 chat.html</div>
+        <div class="step-body">
+            读到 2009 年 4 月 16 日晚的聊天记录。<br>
+            林小满说要去城南见"节目嘉宾"，<br>
+            最后撤回过一条消息。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">2-8</div>
+        <div class="step-title">把鼠标悬停在"对方撤回了一条消息"上</div>
+        <div class="step-body">
+            <span class="warn">不要点，是悬停。</span><br>
+            鼠标停在那一行不动，等 1 秒。<br>
+            会浮出一行隐藏文字：<br>
+            <span class="ok">"密码是 0417。别忘了我。"</span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 碎片 3</div>
+        <code>0417</code>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s3">第三阶段：验证碎片 + 解锁终端</h2>
+
+    <div class="step">
+        <div class="step-num">3-1</div>
+        <div class="step-title">（可选）点 missing.html</div>
+        <div class="step-body">
+            警方失踪档案，确认档案编号 <code>QC2009-0417</code>。<br>
+            0417 同时是：失踪日期 + 照片背面数字 + 林小满生日。<br>
+            <span class="gray">这一步不是必须的，但能帮你把 0417 这个数字记牢。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-2</div>
+        <div class="step-title">（可选）点 decode.html</div>
+        <div class="step-body">
+            如果已经解锁，把三个碎片输进去验证：
+            <ul>
+                <li>碎片 1：<code>0315</code></li>
+                <li>碎片 2：<code>8821</code></li>
+                <li>碎片 3：<code>0417</code></li>
+            </ul>
+            点"尝试解码"，显示 ✅ 成功。<br>
+            <span class="gray">这一步也不是必须的，跳过不影响通关。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">3-3</div>
+        <div class="step-title">回 index.html，点 terminal.html</div>
+        <div class="step-body">
+            之前是锁着的。<br>
+            弹出密码框：<span class="ok">输入 0315</span>。<br>
+            点"解锁"。<br>
+            <br>
+            ✅ 页面刷新，进入终端界面。
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">⚠️ 注意</div>
+        终端解锁密码是 <code>0315</code>，不是 0417。<br>
+        0417 是下一步要用的。
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s4">第四阶段：终端操作</h2>
+
+    <div class="step">
+        <div class="step-num">4-1</div>
+        <div class="step-title">输入 help</div>
+        <div class="step-body">
+            显示可用命令：
+            <span class="path">
+                ls              列出文件<br>
+                cat [file]      查看文件内容<br>
+                unlock [pwd]    解锁受保护文件<br>
+                clear           清屏<br>
+                exit            退出
+            </span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-2</div>
+        <div class="step-title">输入 ls</div>
+        <div class="step-body">
+            列出所有文件。<br>
+            末尾有一个特殊文件：<br>
+            <code>final.txt  [受保护]</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">4-3</div>
+        <div class="step-title">输入 unlock 0417</div>
+        <div class="step-body">
+            <span class="ok">✅ 终端输出：</span><br>
+            <span class="path">
+                密码正确。final.txt 已解密。<br>
+                你现在可以访问 final.html 了。<br>
+                返回 硬盘首页 查看。
+            </span>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🔑 关键密码汇总</div>
+        <table>
+            <tr><th>密码</th><th>用途</th></tr>
+            <tr><td><code>0315</code></td><td>解锁 diary-03.html；解锁 terminal.html</td></tr>
+            <tr><td><code>8821</code></td><td>仅用于 decode.html 验证（可选）</td></tr>
+            <tr><td><code>0417</code></td><td>终端命令 <code>unlock 0417</code>，解锁结局</td></tr>
+        </table>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s5">第五阶段：结局</h2>
+
+    <div class="step">
+        <div class="step-num">5-1</div>
+        <div class="step-title">回 index.html</div>
+        <div class="step-body">
+            <code>final.html</code> 现在是亮的（不再是灰色锁状），<br>
+            图标变成 🎙️，大小显示"已解锁"。
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-2</div>
+        <div class="step-title">点 final.html</div>
+        <div class="step-body">
+            读到林小满最后一段录音的转写稿。<br>
+            她说了城南那块地的事，说了那些人，<br>
+            最后一句是：<span class="ok">"别替我出头。把录音交给该交给的人，然后忘掉我。"</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-3</div>
+        <div class="step-title">看完结局</div>
+        <div class="step-body">
+            页面底部是月夜海面的图。<br>
+            然后：
+            <span class="path">
+                — 完 —<br>
+                林小满 · 1983-2009 · 永远的青川之声<br>
+                沈默 · 1981-2009 · 他留住了她的声音
+            </span>
+            <br>
+            <span class="ok">通关。</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-num">5-4</div>
+        <div class="step-title">想重玩？</div>
+        <div class="step-body">
+            回 <code>index.html</code>，底部有"重置进度"按钮。<br>
+            点它，确认，所有进度清空。
+        </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <h2 id="s6">速查表 + 急救包</h2>
+
+    <div class="box">
+        <div class="box-title">🗺️ 通关线路图</div>
+        <span class="path">
+            index.html<br>
+            &nbsp;&nbsp;↓<br>
+            home.html → about.html<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → diary-01.html（找 0315）<br>
+            &nbsp;&nbsp;↓<br>
+            diary.html → 输入 0315 → diary-03.html（找 0417）<br>
+            &nbsp;&nbsp;↓<br>
+            photos.html → 第 4 张图（找 8821）<br>
+            &nbsp;&nbsp;↓<br>
+            chat.html → 悬停撤回消息（找 0417）<br>
+            &nbsp;&nbsp;↓<br>
+            missing.html（确认 0417）<br>
+            &nbsp;&nbsp;↓<br>
+            decode.html（验证三碎片，可选）<br>
+            &nbsp;&nbsp;↓<br>
+            terminal.html → 输入 0315 解锁<br>
+            &nbsp;&nbsp;↓<br>
+            终端里输入 unlock 0417<br>
+            &nbsp;&nbsp;↓<br>
+            index.html → final.html（结局）
+        </span>
+    </div>
+
+    <div class="box">
+        <div class="box-title">🚑 卡关急救包</div>
+        <table>
+            <tr>
+                <th>症状</th>
+                <th>原因</th>
+                <th>解决</th>
+            </tr>
+            <tr>
+                <td>输入 0315 没反应</td>
+                <td>输错位置</td>
+                <td>日记解锁和终端解锁是两处，分别输入</td>
+            </tr>
+            <tr>
+                <td>终端输 unlock 0417 提示密码错误</td>
+                <td>终端还没解锁</td>
+                <td>先输 0315 解锁终端，再输命令</td>
+            </tr>
+            <tr>
+                <td>聊天记录看不到隐藏文字</td>
+                <td>没悬停</td>
+                <td>鼠标停在"对方撤回了一条消息"上不动 1 秒</td>
+            </tr>
+            <tr>
+                <td>final.html 还是灰的</td>
+                <td>终端没解锁成功</td>
+                <td>回 terminal.html 输 unlock 0417</td>
+            </tr>
+            <tr>
+                <td>图片不显示</td>
+                <td>文件名不对</td>
+                <td>检查 images/ 里是不是 door.jpg、envelope.jpg、sea.jpg</td>
+            </tr>
+            <tr>
+                <td>想重玩</td>
+                <td>进度存了</td>
+                <td>index.html 底部"重置进度"按钮</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box">
+        <div class="box-title">💡 通关后还能看的页面（补世界观）</div>
+        这三个不是必须的，但能补完真相：
+        <ul>
+            <li><code>guestbook.html</code> —— 2009 年 4 月 18 日凌晨，有人警告沈默"别查了"</li>
+            <li><code>news.html</code> —— 最后一期节目被"技术原因"取消播出</li>
+            <li><code>forum.html</code> —— 网友讨论"她最后一期节目关于城南那块地"</li>
+        </ul>
+        这三个拼起来就是完整真相：<br>
+        林小满查到了城南地块的利益链，录了最后一期节目，节目被压，她本人也消失了。<br>
+        沈默把一切存进硬盘，等一个能找到的人。
+    </div>
+
+
+    <div class="footer">
+        Copyright &copy; YuansuTech. All rights reserved.<br>
+        提示：YuansuTech 是一个独立的团队，只有一个人。<br>
+        如果你全走完了还是觉得哪里不对，那不是你的问题，是沈默还没说完。
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>本地磁盘 (D:) · QC-2009</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">D:\QC-2009\ —— 只读备份 · 文件系统已损坏</div>
+    </div>
+    <div class="window-body">
+      <p class="cold" style="font-size:0.82rem;">你插上那块旧硬盘。盘标是「QC-2009」，贴纸已经发黄。</p>
+      <p>打开后只有一个文件夹：<span class="hl">qingchuan-memory</span>。</p>
+      <p class="cold" style="font-size:0.82rem;">最后修改时间：2009 年 4 月 17 日 23:59:59</p>
+      <p class="warn" style="font-size:0.82rem;">⚠️ 检测到部分文件损坏，需要修复后才能访问。</p>
+
+      <div class="file-list" style="margin-top:20px;">
+        <div class="file-item" onclick="location.href='home.html'">
+          <div class="icon">📁</div><div class="name">home.html —— 青川记忆 · 首页</div><div class="size">4.2 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='about.html'">
+          <div class="icon">📄</div><div class="name">about.html —— 关于沈默</div><div class="size">3.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='diary.html'">
+          <div class="icon">📁</div><div class="name">diary/ —— 沈默的日记</div><div class="size">3 篇，1 篇加密</div>
+        </div>
+        <div class="file-item" onclick="location.href='photos.html'">
+          <div class="icon">🖼️</div><div class="name">photos/ —— 照片墙</div><div class="size">4 张，2 张损坏</div>
+        </div>
+        <div class="file-item" onclick="location.href='chat.html'">
+          <div class="icon">💬</div><div class="name">chat.log —— 聊天记录</div><div class="size">5.1 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='guestbook.html'">
+          <div class="icon">📖</div><div class="name">guestbook.html —— 留言板</div><div class="size">2.8 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='news.html'">
+          <div class="icon">📰</div><div class="name">news.html —— 新闻存档</div><div class="size">1.9 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='forum.html'">
+          <div class="icon">💭</div><div class="name">forum.html —— 论坛帖</div><div class="size">3.4 KB</div>
+        </div>
+        <div class="file-item" onclick="location.href='missing.html'">
+          <div class="icon">🔍</div><div class="name">missing.html —— 失踪档案</div><div class="size">2.2 KB</div>
+        </div>
+        <div class="file-item" id="file-terminal" onclick="goTerminal()">
+          <div class="icon">🔒</div><div class="name">terminal.html —— ???</div><div class="size">未知</div>
+        </div>
+        <div class="file-item" id="file-decode" onclick="goDecode()">
+          <div class="icon">🔒</div><div class="name">decode.html —— ???</div><div class="size">未知</div>
+        </div>
+        <div class="file-item locked" id="file-final">
+          <div class="icon">🔒</div><div class="name">final.html —— 最后一段录音</div><div class="size">未知</div>
+        </div>
+      </div>
+
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🕰️ 硬盘信息</strong><br>
+        卷标：QC-2009 · 文件系统：FAT32 · 容量：20 GB<br>
+        所有者：沈默（青川电视台 · 音效工程师）<br>
+        最后访问：2009 年 4 月 17 日 23:59:59
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="搜索文件…（试试"日记"、"终端"、"解码"）" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;">
+    <button class="btn" onclick="if(confirm('确定要重置所有进度吗？')){resetState();location.reload();}">重置进度</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function goTerminal() {
+  const s = getState();
+  if (s.terminalUnlocked) location.href = 'terminal.html';
+  else alert('该文件受保护。需要先找到终端密码。');
+}
+function goDecode() {
+  const s = getState();
+  if (s.decodeUnlocked) location.href = 'decode.html';
+  else alert('该文件受保护。需要先找到解码密钥。');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const s = getState();
+  if (s.terminalUnlocked) {
+    const f = document.getElementById('file-terminal');
+    f.querySelector('.icon').textContent = '⚡';
+    f.querySelector('.size').textContent = '已解锁';
+  }
+  if (s.decodeUnlocked) {
+    const f = document.getElementById('file-decode');
+    f.querySelector('.icon').textContent = '🔓';
+    f.querySelector('.size').textContent = '已解锁';
+  }
+  if (s.finalUnlocked) {
+    const f = document.getElementById('file-final');
+    f.classList.remove('locked');
+    f.onclick = () => location.href = 'final.html';
+    f.querySelector('.icon').textContent = '🎙️';
+    f.querySelector('.size').textContent = '已解锁';
+  } else {
+    document.getElementById('file-final').onclick = () => {
+      alert('该文件受保护。需要先在终端里解锁。');
+    };
+  }
+});
+</script>
+</body>
+</html>

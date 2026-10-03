@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>失踪档案</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">missing.html —— 青川市公安局</div>
+    </div>
+    <div class="window-body">
+      <p><strong>姓名：</strong>林小满</p>
+      <p><strong>性别：</strong>女</p>
+      <p><strong>出生：</strong>1983 年</p>
+      <p><strong>失踪日期：</strong><span class="hl">2009 年 4 月 17 日</span></p>
+      <p><strong>失踪地点：</strong>青川市城南区</p>
+      <p><strong>状态：</strong><span class="warn">未找到</span></p>
+      <hr style="border:none;border-top:1px dashed #2e2e33;margin:16px 0;">
+      <p class="dim">2009 年 4 月 17 日晚，林小满从电视台宿舍外出后未归。次日室友报警。</p>
+      <p class="dim">警方在其宿舍发现一台笔记本电脑，硬盘已被格式化。</p>
+      <p class="dim">在其办公桌抽屉中发现一张城南区旧厂区的照片，背面写有数字 0417。</p>
+      <p class="dim">该厂区地块于 2009 年 5 月被某房地产公司收购。</p>
+      <p class="warn" style="margin-top:12px;">案件至今未破。</p>
+
+      <div class="timetower" style="margin-top:24px;">
+        <strong>🔑 档案编号</strong><br>
+        QC2009-0417<br>
+        这个编号同时是：失踪日期 + 照片背面数字 + 林小满生日
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="搜索…" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('🔑 档案编号 QC2009-0417，密码 0417 确认');
+});
+</script>
+</body>
+</html>

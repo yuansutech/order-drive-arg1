@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>留言板</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">guestbook.html —— 留言板</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">这个留言板从 2008 年开到 2009 年。最后一条留言之后，网站就再也没更新过。</p>
+
+      <div class="guest-entry">
+        <span class="who">网友A</span><span class="when">2008-05-20 14:32</span>
+        <div class="text">博客做得挺好的，照片拍得不错。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">同事小李</span><span class="when">2008-09-12 09:15</span>
+        <div class="text">沈哥，台里的人都不知道你还有这手艺。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">林小满</span><span class="when">2008-12-25 00:01</span>
+        <div class="text">圣诞快乐。这是我在你网站上留的第一条也是最后一条。你看到的时候，我可能已经不在了。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">匿名</span><span class="when">2009-04-18 03:17</span>
+        <div class="text" style="color:#c98a4b;">别查了。忘掉她。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">匿名</span><span class="when">2009-04-18 03:19</span>
+        <div class="text" style="color:#c98a4b;">网站明天就会消失。你也是。</div>
+      </div>
+      <div class="guest-entry">
+        <span class="who">沈默</span><span class="when">2009-04-18 04:00</span>
+        <div class="text">我不会删。我会把网站做成硬盘备份。如果我不在了，会有人找到的。</div>
+      </div>
+
+      <div class="timetower" style="margin-top:24px;">
+        <strong>📌 注意</strong><br>
+        最后三条留言发生在 2009 年 4 月 18 日凌晨。沈默在 04:00 之后没有再出现。
+      </div>
+
+      <div class="searchbar">
+        <input type="text" placeholder="搜索…" autocomplete="off">
+        <button>搜索</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  saveNote('📖 留言板：2009年4月18日凌晨，有人警告沈默"别查了"');
+});
+</script>
+</body>
+</html>

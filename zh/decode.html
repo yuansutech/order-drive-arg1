@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>解码工具</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="drive">
+  <div class="window">
+    <div class="window-bar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">decode.html —— 沈默的解码工具</div>
+    </div>
+    <div class="window-body">
+      <p class="dim">这是沈默写的一个小工具。用来把碎片信息拼成密码。</p>
+      <p>输入你找到的数字碎片，系统会自动尝试组合。</p>
+
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">碎片 1（日记）：</label>
+        <input type="text" id="f1" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">碎片 2（照片）：</label>
+        <input type="text" id="f2" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+      <div style="margin:20px 0;">
+        <label class="dim" style="display:block;margin-bottom:6px;">碎片 3（聊天）：</label>
+        <input type="text" id="f3" class="puzzle-input" maxlength="4" placeholder="····">
+      </div>
+
+      <button class="btn primary" onclick="tryDecode()" style="margin-top:16px;">尝试解码</button>
+      <p id="decode-result" style="margin-top:16px;"></p>
+
+      <div class="timetower" style="margin-top:24px;">
+        <strong>💡 提示</strong><br>
+        三个碎片分别是 4 位数字。全部正确时，会显示完整的密码。
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+function tryDecode() {
+  const f1 = document.getElementById('f1').value.trim();
+  const f2 = document.getElementById('f2').value.trim();
+  const f3 = document.getElementById('f3').value.trim();
+  const r = document.getElementById('decode-result');
+
+  if (f1 === '0315' && f2 === '8821' && f3 === '0417') {
+    r.innerHTML = '<span style="color:#7ee0ff;">✅ 解码成功。完整密码：<strong>0417-0315-8821</strong></span>';
+    saveNote('🔓 解码成功：0417-0315-8821');
+  } else {
+    r.innerHTML = '<span style="color:#ff5f57;">❌ 碎片不匹配。检查每个数字是否正确。</span>';
+  }
+}
+</script>
+</body>
+</html>
